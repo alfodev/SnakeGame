@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-// Hej jag heter Karin
+// Hej jag heter Karin HALLÅ
 namespace Inlupp2Skelett
 {
     class Program
