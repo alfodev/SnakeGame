@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Inlupp2Skelett
+namespace SnakeGame
 {
     abstract class GameObject
     {
-        // TODO
+        public Position position = new Position();
+        public char Appearance = '@';
+
+        public abstract void Update();
+
     }
 }

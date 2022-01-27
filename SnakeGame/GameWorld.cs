@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Inlupp2Skelett
+namespace SnakeGame
 {
     class GameWorld
     {
