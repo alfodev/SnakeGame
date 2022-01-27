@@ -20,7 +20,7 @@ namespace Inlupp2Skelett
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
             // ...
 
-            // Huvudloopen
+            // Huvudloopen // josefiiin
             bool running = true;
             while (running)
             {
