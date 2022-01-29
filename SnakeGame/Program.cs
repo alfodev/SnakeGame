@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-Console.SetWindowSize(160, 40);
+Console.SetWindowSize(50, 20);
 
 namespace SnakeGame
 {

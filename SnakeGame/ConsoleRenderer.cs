@@ -10,7 +10,7 @@ namespace SnakeGame
         public ConsoleRenderer(GameWorld gameWorld)
         {
             // TODO Konfigurera Console-fönstret enligt världens storlek
-            //Console.SetWindowSize(100, 100);
+            
 
             world = gameWorld;
         }

@@ -10,15 +10,21 @@ namespace SnakeGame
     internal class Player : GameObject
     {
         Direction MyDirection;
+        // Skapa variabel för nuvarande position
+
         public Player(Direction TheDirection)
         {
-            MyDirection = TheDirection;
+            // Skapa en default position för när användaren skapas
+            this.MyDirection = TheDirection;
         }
 
-        public override void Update()
+        public override void Update(/*Variabel från main*/)
         {
             // Implementera metoden Update() så att den, beroende på spelarens riktning, flyttar sin position ett steg i rätt riktning.
-
+            // om höger eller vänster
+            // Position X = variabel från main
+            // om upp eller ner
+            // Position Y = variabel från main
 
         }
     }

@@ -6,9 +6,13 @@ namespace SnakeGame
 {
     abstract class GameObject
     {
-        public Position position = new Position();
+        public Position position;
         public char appearance;
 
+        public GameObject()
+        {
+
+        }
         public abstract void Update();
 
     }
