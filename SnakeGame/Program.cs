@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading;
 
-// Hej jag heter Karin HALLÅ
+Console.SetWindowSize(160, 40);
 
 namespace SnakeGame
 {
+    
     class Program
     {
         /// <summary>

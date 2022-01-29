@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 enum Direction { Up, Down, Left, Right }
+
 namespace SnakeGame
 {
     internal class Player : GameObject
@@ -16,6 +17,8 @@ namespace SnakeGame
 
         public override void Update()
         {
+            // Implementera metoden Update() så att den, beroende på spelarens riktning, flyttar sin position ett steg i rätt riktning.
+
 
         }
     }
