@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    internal class Food : GameObject
+    public class Food : GameObject
     {
         public Food(char startAppearance) : base(startAppearance)
         {

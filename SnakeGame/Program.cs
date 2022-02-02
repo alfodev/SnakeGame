@@ -6,7 +6,7 @@ using System.Threading;
 namespace SnakeGame
 {
     
-    class Program
+    public class Program
     {
         /// <summary>
         /// Checks Console to see if a keyboard key has been pressed, if so returns it, otherwise NoName.
@@ -17,8 +17,8 @@ namespace SnakeGame
         static void Loop()
         {
             // Initialisera spelet
-            const int frameRate = 2;
-            GameWorld world = new GameWorld(50, 50);            
+            const int frameRate = 5;
+            GameWorld world = new GameWorld(50, 20);            
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
@@ -26,15 +26,11 @@ namespace SnakeGame
             Food mat = new Food('x');
             world.ListOfGameObjects.Add(karin);
             world.ListOfGameObjects.Add(mat);
-            Console.WriteLine(mat.appearance);
-            Console.WriteLine(mat.position.X);
-            Console.WriteLine(karin.appearance);
-            Console.WriteLine(karin.position.Y);
             // Huvudloopen 
             bool running = true;
             while (running)
             {
-                Console.WriteLine(karin.position.Y);
+                
                 //Console.WriteLine("While");
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
@@ -73,6 +69,7 @@ namespace SnakeGame
                 // Uppdatera världen och rendera om
                 world.Update();
                 renderer.Render();
+                
 
                 // Mät hur lång tid det tog
                 double frameTime = Math.Ceiling((1000.0 / frameRate) - (DateTime.Now - before).TotalMilliseconds);
@@ -81,13 +78,14 @@ namespace SnakeGame
                     // Vänta rätt antal millisekunder innan loopens nästa varv
                     Thread.Sleep((int)frameTime);
                 }
+                renderer.RenderBlank();
             }
         }
 
         static void Main(string[] args)
         {
             
-            Console.SetWindowSize(50, 50);
+            Console.SetWindowSize(50, 20);
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
             Loop();

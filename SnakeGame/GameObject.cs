@@ -4,12 +4,12 @@ using System.Text;
 
 namespace SnakeGame
 {
-    abstract class GameObject
+    public abstract class GameObject
     {
         public Position position;
 
         // Utseende för objektet
-        public char appearance;
+        public char appearance; 
 
 
         public GameObject(char startAppearance)

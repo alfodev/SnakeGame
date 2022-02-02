@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-enum Direction { Up, Down, Left, Right }
+public enum Direction { Up, Down, Left, Right }
 
 namespace SnakeGame
 {
-    internal class Player : GameObject
+    public class Player : GameObject
     {
         public Direction MyDirection;
 

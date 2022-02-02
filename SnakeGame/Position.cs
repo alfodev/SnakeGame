@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    internal class Position
+    public class Position
     {
         public int X;
         public int Y;
