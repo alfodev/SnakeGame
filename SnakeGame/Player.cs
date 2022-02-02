@@ -25,6 +25,7 @@ namespace SnakeGame
         // Kan inte ha en inparameter i metoden?.
         public override void Update()
         {
+            Console.WriteLine("PLAYER UPDATE");
             // Position X = variabel från main
             // om upp eller ner
             // Position Y = variabel från main

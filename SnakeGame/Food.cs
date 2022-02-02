@@ -15,7 +15,7 @@ namespace SnakeGame
         }
         public override void Update()
         {
-
+            Console.WriteLine("FOOD UPDATE");
         }
     }
 }

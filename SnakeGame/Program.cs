@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-Console.SetWindowSize(50, 20);
+
 
 namespace SnakeGame
 {
@@ -16,7 +16,6 @@ namespace SnakeGame
         
         static void Loop()
         {
-            Console.WriteLine("HEJSAN 0");
             // Initialisera spelet
             const int frameRate = 5;
             GameWorld world = new GameWorld();            
@@ -24,14 +23,18 @@ namespace SnakeGame
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
             Player karin = new(Direction.Down);
+            Food mat = new();
             world.ListOfGameObjects.Add(karin);
-            Console.WriteLine("HEJSAN 1");
-
+            world.ListOfGameObjects.Add(mat);
+            Console.WriteLine(mat.appearance);
+            Console.WriteLine(mat.position.X);
+            Console.WriteLine(karin.appearance);
+            Console.WriteLine(karin.position.Y);
             // Huvudloopen 
             bool running = true;
             while (running)
             {
-                Console.WriteLine("HEJSAN 2");
+                Console.WriteLine("While");
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
 
@@ -56,7 +59,7 @@ namespace SnakeGame
                     case ConsoleKey.RightArrow:
                         break;
 
-                    default: Console.WriteLine("HEJ");
+                    default: Console.WriteLine("default");
                         break;
                         
                     
@@ -78,7 +81,8 @@ namespace SnakeGame
 
         static void Main(string[] args)
         {
-            Console.WriteLine("HEJSAN I Main");
+            Console.SetWindowSize(50, 20);
+            Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
             Loop();
         }

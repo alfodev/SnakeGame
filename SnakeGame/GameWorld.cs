@@ -23,7 +23,7 @@ namespace SnakeGame
         {
             foreach (var objects in ListOfGameObjects)
             {
-                objects.Update();
+                objects.Update(); 
             }
         }
     }
