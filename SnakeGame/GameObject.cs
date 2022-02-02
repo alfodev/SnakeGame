@@ -12,10 +12,10 @@ namespace SnakeGame
         public char appearance;
 
 
-        public GameObject()
+        public GameObject(char startAppearance)
         {
-            position = new Position();
-            
+            this.appearance = startAppearance;
+            position = new Position();       
         }
         public abstract void Update();
     }

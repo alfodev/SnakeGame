@@ -6,17 +6,18 @@ namespace SnakeGame
 {
     class GameWorld
     {
-        public int Width = 50;
-        public int Height = 30;
+        public int Width; // X
+        public int Height; // Y
         public int Points = 0;
         
 
 
         public List<GameObject> ListOfGameObjects = new List<GameObject>();
 
-        public GameWorld()
+        public GameWorld(int width, int height)
         {
-
+            Width = width;
+            Height = height;
         }
 
         public void Update()

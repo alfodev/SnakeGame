@@ -8,14 +8,14 @@ namespace SnakeGame
 {
     internal class Food : GameObject
     {
-        public Food()
+        public Food(char startAppearance) : base(startAppearance)
         {
-            this.appearance = '*';
-            this.position = new Position();
+          
         }
         public override void Update()
         {
-            Console.WriteLine("FOOD UPDATE");
+            //Console.WriteLine("FOOD UPDATE");
+
         }
     }
 }

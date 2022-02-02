@@ -17,13 +17,13 @@ namespace SnakeGame
         static void Loop()
         {
             // Initialisera spelet
-            const int frameRate = 5;
-            GameWorld world = new GameWorld();            
+            const int frameRate = 2;
+            GameWorld world = new GameWorld(50, 50);            
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Player karin = new(Direction.Down);
-            Food mat = new();
+            Player karin = new(Direction.Down, '@');
+            Food mat = new Food('x');
             world.ListOfGameObjects.Add(karin);
             world.ListOfGameObjects.Add(mat);
             Console.WriteLine(mat.appearance);
@@ -34,7 +34,8 @@ namespace SnakeGame
             bool running = true;
             while (running)
             {
-                Console.WriteLine("While");
+                Console.WriteLine(karin.position.Y);
+                //Console.WriteLine("While");
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
 
@@ -48,18 +49,22 @@ namespace SnakeGame
 
                     // TODO Lägg till logik för andra knapptryckningar
                     case ConsoleKey.UpArrow:
+                        karin.MyDirection = Direction.Up;                        
                         break;
 
                     case ConsoleKey.DownArrow:
+                        karin.MyDirection = Direction.Down;
                         break;
 
                     case ConsoleKey.LeftArrow:
+                        karin.MyDirection = Direction.Left;
                         break;
 
                     case ConsoleKey.RightArrow:
+                        karin.MyDirection = Direction.Right;
                         break;
 
-                    default: Console.WriteLine("default");
+                    default: 
                         break;
                         
                     
@@ -81,8 +86,9 @@ namespace SnakeGame
 
         static void Main(string[] args)
         {
-            Console.SetWindowSize(50, 20);
-            Console.WriteLine("Main");
+            
+            Console.SetWindowSize(50, 50);
+            //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
             Loop();
         }
