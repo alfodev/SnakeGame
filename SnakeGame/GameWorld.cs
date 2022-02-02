@@ -8,16 +8,20 @@ namespace SnakeGame
     {
         public int Width = 50;
         public int Height = 30;
-        public int Points;
-        List<GameObject> gameObjects = new List<GameObject>();
+        public int Points = 0;
+        
+
+
+        public List<GameObject> ListOfGameObjects = new List<GameObject>();
 
         public GameWorld()
         {
 
         }
+
         public void Update()
         {
-            foreach (var objects in gameObjects)
+            foreach (var objects in ListOfGameObjects)
             {
                 objects.Update();
             }

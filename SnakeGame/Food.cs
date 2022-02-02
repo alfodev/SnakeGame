@@ -10,7 +10,8 @@ namespace SnakeGame
     {
         public Food()
         {
-
+            this.appearance = '*';
+            this.position = new Position();
         }
         public override void Update()
         {

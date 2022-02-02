@@ -12,7 +12,7 @@ namespace SnakeGame
             // TODO Konfigurera Console-fönstret enligt världens storlek
             
 
-            world = gameWorld;
+            this.world = gameWorld;
         }
 
         public void Render()

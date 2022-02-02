@@ -13,20 +13,25 @@ namespace SnakeGame
         /// </summary>
         static ConsoleKey ReadKeyIfExists() => Console.KeyAvailable ? Console.ReadKey(intercept: true).Key : ConsoleKey.NoName;
 
+        
         static void Loop()
         {
+            Console.WriteLine("HEJSAN 0");
             // Initialisera spelet
             const int frameRate = 5;
-            GameWorld world = new GameWorld();
+            GameWorld world = new GameWorld();            
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            // ...
+            Player karin = new(Direction.Down);
+            world.ListOfGameObjects.Add(karin);
+            Console.WriteLine("HEJSAN 1");
 
-            // Huvudloopen // josefiiinssss
+            // Huvudloopen 
             bool running = true;
             while (running)
             {
+                Console.WriteLine("HEJSAN 2");
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
 
@@ -39,7 +44,22 @@ namespace SnakeGame
                         break;
 
                     // TODO Lägg till logik för andra knapptryckningar
-                    // ...
+                    case ConsoleKey.UpArrow:
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        break;
+
+                    case ConsoleKey.LeftArrow:
+                        break;
+
+                    case ConsoleKey.RightArrow:
+                        break;
+
+                    default: Console.WriteLine("HEJ");
+                        break;
+                        
+                    
                 }
 
                 // Uppdatera världen och rendera om
@@ -58,6 +78,7 @@ namespace SnakeGame
 
         static void Main(string[] args)
         {
+            Console.WriteLine("HEJSAN I Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
             Loop();
         }

@@ -7,13 +7,19 @@ namespace SnakeGame
     abstract class GameObject
     {
         public Position position;
+
+        // Utseende för objektet
         public char appearance;
+
+        public Player player;
+        Food food;
 
         public GameObject()
         {
-
+            position = new Position();
+            
         }
-        public abstract void Update();
+        public abstract void Update(/*Position inparameter? */);
 
     }
 }
