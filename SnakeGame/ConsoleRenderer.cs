@@ -19,13 +19,14 @@ namespace SnakeGame
         {
             foreach (var obj in world.ListOfGameObjects)
             {
+                
                 Console.ForegroundColor = obj.color;
                 Console.SetCursorPosition(obj.position.X, obj.position.Y);
                 Console.Write(obj.appearance);
             }
-
-            Console.SetCursorPosition(53, 0);
-            Console.WriteLine(world.Points);
+            
+            Console.SetCursorPosition(22,22);
+            Console.WriteLine($"Points: {world.Points}");
 
             // TODO Rendera spelvärlden (och poängräkningen)
             // Använd Console.SetCursorPosition(int x, int y) and Console.Write(char)
@@ -42,14 +43,14 @@ namespace SnakeGame
         }
         public void RenderBorder()
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i <= 50; i++)
             {
                 Console.SetCursorPosition(i, 0);
                 Console.Write("O");
                 Console.SetCursorPosition(i, 20);
                 Console.Write("O");
             }
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i <= 20; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.Write("O");

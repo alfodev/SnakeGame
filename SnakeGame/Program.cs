@@ -12,13 +12,14 @@ namespace SnakeGame
         /// Checks Console to see if a keyboard key has been pressed, if so returns it, otherwise NoName.
         /// </summary>
         static ConsoleKey ReadKeyIfExists() => Console.KeyAvailable ? Console.ReadKey(intercept: true).Key : ConsoleKey.NoName;
-
+        int frameRate = 5;
         
         static void Loop()
         {
             // Initialisera spelet
-            const int frameRate = 5;
-            GameWorld world = new GameWorld(50, 20);            
+            
+            GameWorld world = new GameWorld(50, 20);
+            
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             renderer.RenderBorder();
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
@@ -30,7 +31,7 @@ namespace SnakeGame
             bool running = true;
             while (running)
             {
-                
+                int frameRate = world.GetFrameRate();
                 //Console.WriteLine("While");
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;

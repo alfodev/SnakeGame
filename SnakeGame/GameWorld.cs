@@ -10,6 +10,7 @@ namespace SnakeGame
         public int Height; // Y
         public int Points = 0;
         public bool GameOver;
+        public int frameRate = 4;
         
 
 
@@ -43,13 +44,17 @@ namespace SnakeGame
                             {
                                 objekt.AteFood();
                                 Points++;
+                                frameRate++;
                             }
                         }                
                     }
                 }
             }
         }
-
+        public int GetFrameRate()
+        {
+            return frameRate;
+        }
         public bool OutsideGameWorld(GameObject player)
         {
             if (player.position.X >= 50 || player.position.X <= 0)

@@ -49,7 +49,7 @@ namespace SnakeGame
         }
         public override void AteFood()
         {
-           
+            
 
         }
 
