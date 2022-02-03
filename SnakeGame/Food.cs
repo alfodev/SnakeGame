@@ -8,6 +8,7 @@ namespace SnakeGame
 {
     public class Food : GameObject
     {
+        
         public Food(char startAppearance) : base(startAppearance)
         {
           
@@ -37,7 +38,7 @@ namespace SnakeGame
 
             if (GetRandomConsoleColor() != ConsoleColor.Black)
             {
-                Console.ForegroundColor = GetRandomConsoleColor();
+                color = GetRandomConsoleColor();
             }
             
             

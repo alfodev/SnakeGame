@@ -9,8 +9,8 @@ namespace SnakeGame
         public Position position;
 
         // Utseende för objektet
-        public char appearance; 
-
+        public char appearance;
+        public ConsoleColor color = ConsoleColor.White;
 
         public GameObject(char startAppearance)
         {

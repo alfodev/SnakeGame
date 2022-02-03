@@ -11,7 +11,7 @@ namespace SnakeGame
     public class Player : GameObject
     {
         public Direction MyDirection;
-
+        
         public Player(Direction StartDirection, char appearance) : base(appearance)
         {
             // En default position skapas via GameObject klassen. Så vad behöver vi veta när vi skapar en ny player?
