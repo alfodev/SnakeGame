@@ -78,7 +78,13 @@ namespace SnakeGame
                     // Vänta rätt antal millisekunder innan loopens nästa varv
                     Thread.Sleep((int)frameTime);
                 }
+
                 renderer.RenderBlank();
+
+                if(world.GameOver == true)
+                {
+                    break;
+                }
             }
         }
 
@@ -89,7 +95,11 @@ namespace SnakeGame
             Console.SetWindowSize(60, 30);
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
+
             Loop();
+            Console.Clear();
+            Console.WriteLine("Game Over 4 you, total points: ");
+            Console.ReadKey();  
         }
     }
 }

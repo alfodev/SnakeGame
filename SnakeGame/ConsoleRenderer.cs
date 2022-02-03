@@ -25,8 +25,8 @@ namespace SnakeGame
 
             Console.SetCursorPosition(53, 0);
             Console.WriteLine(world.Points);
-            // TODO Rendera spelvärlden (och poängräkningen)
 
+            // TODO Rendera spelvärlden (och poängräkningen)
             // Använd Console.SetCursorPosition(int x, int y) and Console.Write(char)
         }
         public void RenderBlank()
@@ -56,6 +56,10 @@ namespace SnakeGame
                 Console.Write("O");
             }
          
+        }
+        public bool RendererGameOver()
+        {
+            return true;
         }
     }
 }

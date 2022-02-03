@@ -9,6 +9,7 @@ namespace SnakeGame
         public int Width; // X
         public int Height; // Y
         public int Points = 0;
+        public bool GameOver;
         
 
 
@@ -22,12 +23,18 @@ namespace SnakeGame
         
         public void Update()
         {
-
             foreach (var objects in ListOfGameObjects)
             {
                 objects.Update();
                 if (objects is Player)
                 {
+                    if (OutsideGameWorld(objects) == true)
+                    {
+                        Console.WriteLine("Total points: " + Points);
+                        Thread.Sleep(2000);
+                        GameOver = true;
+                    }                    
+                    
                     foreach (var objekt in ListOfGameObjects)
                     {
                         if (objekt is Food)
@@ -36,19 +43,26 @@ namespace SnakeGame
                             {
                                 objekt.AteFood();
                                 Points++;
-                                
-                              
                             }
-
-                        }
-
-                
+                        }                
                     }
-                    
-                    
-                        
-                    
                 }
+            }
+        }
+
+        public bool OutsideGameWorld(GameObject player)
+        {
+            if (player.position.X >= 50 || player.position.X <= 0)
+            {
+                return true;
+            }
+            if (player.position.Y >= 20 || player.position.Y <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
