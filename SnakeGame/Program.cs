@@ -86,7 +86,7 @@ namespace SnakeGame
         {
             Console.CursorVisible = false; // Döljer "pekaren" i konsolfönstret.
             
-            Console.SetWindowSize(50, 20);
+            Console.SetWindowSize(60, 30);
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
             Loop();

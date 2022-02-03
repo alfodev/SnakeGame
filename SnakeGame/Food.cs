@@ -23,6 +23,9 @@ namespace SnakeGame
         {
             position.X = rnd1.Next(1, 50);
             position.Y = rnd1.Next(1, 20);
+            Console.ForegroundColor = ConsoleColor.Green;
+            
+
         }
 
     }
