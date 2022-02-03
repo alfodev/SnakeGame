@@ -84,6 +84,7 @@ namespace SnakeGame
 
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             
             Console.SetWindowSize(50, 20);
             //Console.WriteLine("Main");
