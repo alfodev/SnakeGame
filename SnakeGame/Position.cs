@@ -22,8 +22,8 @@ namespace SnakeGame
         }
         public Position()
         {
-            X = 25;
-            Y = 25;
+            X = 10;
+            Y = 10;
         }
     }
 }

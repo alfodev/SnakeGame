@@ -47,6 +47,11 @@ namespace SnakeGame
             // om upp eller ner
             // Position Y = variabel från main
         }
+        public override void AteFood()
+        {
+
+        }
+
 
     }
 }

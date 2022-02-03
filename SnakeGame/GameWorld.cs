@@ -19,12 +19,30 @@ namespace SnakeGame
             Width = width;
             Height = height;
         }
-
+        
         public void Update()
         {
+
             foreach (var objects in ListOfGameObjects)
             {
-                objects.Update(); 
+                objects.Update();
+                if (objects is Player)
+                {
+                    foreach (var objekt in ListOfGameObjects)
+                    {
+                        if (objekt is Food)
+                        {
+                            if (objekt.position.X == objects.position.X && objekt.position.Y == objects.position.Y)
+                            {
+                                objekt.AteFood();
+                            }
+                        }
+                    }
+                    
+                    
+                        
+                    
+                }
             }
         }
     }

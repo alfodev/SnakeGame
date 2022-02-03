@@ -12,10 +12,18 @@ namespace SnakeGame
         {
           
         }
+        Random rnd1 = new Random();
+        
+           
         public override void Update()
         {
-            //Console.WriteLine("FOOD UPDATE");
-
+            
         }
+        public override void AteFood()
+        {
+            position.X = rnd1.Next(1, 50);
+            position.Y = rnd1.Next(1, 20);
+        }
+
     }
 }

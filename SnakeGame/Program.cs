@@ -20,7 +20,7 @@ namespace SnakeGame
             const int frameRate = 5;
             GameWorld world = new GameWorld(50, 20);            
             ConsoleRenderer renderer = new ConsoleRenderer(world);
-
+            renderer.RenderBorder();
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
             Player karin = new(Direction.Down, '@');
             Food mat = new Food('x');
@@ -84,7 +84,7 @@ namespace SnakeGame
 
         static void Main(string[] args)
         {
-            Console.CursorVisible = false;
+            Console.CursorVisible = false; // Döljer "pekaren" i konsolfönstret.
             
             Console.SetWindowSize(50, 20);
             //Console.WriteLine("Main");

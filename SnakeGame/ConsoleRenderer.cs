@@ -23,6 +23,7 @@ namespace SnakeGame
                 Console.Write(obj.appearance);
             }
 
+
             // TODO Rendera spelvärlden (och poängräkningen)
 
             // Använd Console.SetCursorPosition(int x, int y) and Console.Write(char)
@@ -33,6 +34,25 @@ namespace SnakeGame
             {
                 Console.SetCursorPosition(obj.position.X, obj.position.Y);
                 Console.Write(" ");
+            }
+
+
+        }
+        public void RenderBorder()
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                Console.SetCursorPosition(i, 0);
+                Console.Write("O");
+                Console.SetCursorPosition(i, 20);
+                Console.Write("O");
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.Write("O");
+                Console.SetCursorPosition(50, i);
+                Console.Write("O");
             }
 
         }
