@@ -31,6 +31,7 @@ namespace SnakeGame
                 {
                     if (OutsideGameWorld(objects) == true)
                     {
+                        Console.SetCursorPosition(20,10);
                         Console.WriteLine("Total points: " + Points);
                         Thread.Sleep(2000);
                         GameOver = true;
