@@ -19,11 +19,29 @@ namespace SnakeGame
         {
             
         }
+
+        
+        private static Random _random = new Random();
+        private static ConsoleColor GetRandomConsoleColor()
+        {
+            var consoleColors = Enum.GetValues(typeof(ConsoleColor));
+            return (ConsoleColor)consoleColors.GetValue(_random.Next(consoleColors.Length));
+        }
+
         public override void AteFood()
         {
+            
+
             position.X = rnd1.Next(1, 50);
             position.Y = rnd1.Next(1, 20);
-            Console.ForegroundColor = ConsoleColor.Green;
+
+            if (GetRandomConsoleColor() != ConsoleColor.Black)
+            {
+                Console.ForegroundColor = GetRandomConsoleColor();
+            }
+            
+            
+            
             
 
         }
