@@ -16,7 +16,11 @@ namespace SnakeGame
 
             
         }
-        
+        /// <summary>
+        /// Rendering the gameworld. Appearance and positioning of the different objects within the World.
+        /// </summary>
+        /// <param name="obj"> Represents the objects in the gameworld</param>
+        /// <returns> returns a gameworld with a snake and food in right position and color </returns>
         public void Render()
         {
             foreach (var obj in world.ListOfGameObjects)
@@ -30,8 +34,7 @@ namespace SnakeGame
             Console.SetCursorPosition(22,22);
             Console.WriteLine($"Points: {world.Points}");
 
-            // TODO Rendera spelvärlden (och poängräkningen)
-            // Använd Console.SetCursorPosition(int x, int y) and Console.Write(char)
+            
         }
         public void RenderBlank()
         {
