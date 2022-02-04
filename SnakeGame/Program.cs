@@ -112,30 +112,36 @@ namespace SnakeGame
                             Console.WriteLine("\t\nVälj ett tecken som ett utseende");
                             // 1 poäng för lätt
                             string apperianceEasy = Console.ReadLine();
+                            Console.Clear();
                             // Starta spelet
                             break;
                         case 2:
                             Console.WriteLine("\t\nVälj ett tecken som ett utseende");
                             string apperianceMedium = Console.ReadLine();
+                            Console.Clear();
                             break;
                         case 3:
                             Console.WriteLine("\t\nVälj ett tecken som ett utseende");
                             string apperianceHard = Console.ReadLine();
+                            Console.Clear();
                             break;
                         default:
                             Console.WriteLine("\t\nVänligen välj en siffra!");
+                            Console.Clear();
                             break;
                     }
                     break;
                 case 2:
                     Console.WriteLine("\t\nHighscore");
                     int highScore = 0; //highscore
+                    Console.Clear();
                     break;
                 case 3:
                     // Avsluta
                     break;
                 default:
                     Console.WriteLine("\t\nVänligen väl en siffra från menyn");
+                    Console.Clear();
                     break;
               }
             //Console.WriteLine("Main");
