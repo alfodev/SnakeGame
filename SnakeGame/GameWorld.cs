@@ -33,15 +33,13 @@ namespace SnakeGame
        
         public void Update()
         {
-
             for (int i = 0; i < Points; i++)
             {
 
+                ListOfGameObjects[Points + 1].position.Y = ListOfGameObjects[Points].position.Y;
+                ListOfGameObjects[Points + 1].position.X = ListOfGameObjects[Points].position.X;
 
-                ListOfGameObjects[i+1 + Points].position.X = ListOfGameObjects[i].prevPosition.X;
-                ListOfGameObjects[i+1 + Points].position.Y = ListOfGameObjects[i].prevPosition.Y;
             }
-
             foreach (var objects in ListOfGameObjects)
             {
                objects.Update(); 
@@ -65,10 +63,8 @@ namespace SnakeGame
                             if (objekt.position.X == objects.position.X && objekt.position.Y == objects.position.Y)
                             {
                                 Points++;
-
                                 objekt.AteFood();
                                 AteFood = true;
-                               
                                 frameRate++;
 
                             }
@@ -85,7 +81,8 @@ namespace SnakeGame
                     
                 
             }
-            
+
+
         }
         
         /// <summary>

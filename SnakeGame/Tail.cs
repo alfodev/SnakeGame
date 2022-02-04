@@ -21,8 +21,7 @@ namespace SnakeGame
         }
         public override void Update()
         {
-            prevPosition.X = this.position.X;
-            prevPosition.Y = this.position.Y;
+
         }
         public override void AteFood()
         {
