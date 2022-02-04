@@ -15,9 +15,13 @@ namespace SnakeGame
             Console.CursorVisible = false;
 
             
-        } 
+        }
+        /// <summary>
+        /// Rendering the gameworld. Appearance and positioning of the different objects within the World.
+        /// </summary>
         public void Render()
         {
+
             foreach (var obj in world.ListOfGameObjects)
             {
                 
