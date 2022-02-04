@@ -9,7 +9,7 @@ public enum Direction { Up, Down, Left, Right }
 namespace SnakeGame
 {
     /// <summary>
-    /// A class which contains information about the player. Direction,appearance and if food is eaten. 
+    /// A class which contains information about the player. Direction,appearance and what happens if food is eaten. 
     /// </summary>
     /// <param name="Direction">Enum with four different values for the snakes direction.Up,down,left, right</param>
     /// <param name="Direction">Enum with four different values for the snakes direction.Up,down,left, right</param>
