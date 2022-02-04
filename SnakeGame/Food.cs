@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
+    /// <summary>
+    /// A class which is providing information about the food. Color, positioning and outcome for when it is eaten.
+    /// </summary>
+    /// <param name="rnd1">represents the a random method which will generate a position for the food</param>
+    /// <returns>returns a position and color for the food</returns>
     public class Food : GameObject
     {
        

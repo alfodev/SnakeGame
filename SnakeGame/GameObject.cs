@@ -20,6 +20,7 @@ namespace SnakeGame
             position = new Position();       
         }
 
+      
         public abstract void Update();
         public abstract void AteFood();
     }
