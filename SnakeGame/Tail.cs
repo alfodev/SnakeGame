@@ -8,6 +8,7 @@ namespace SnakeGame
 {
     public class Tail : Player
     {
+        int tails = 0;
         
         public char Appearance;
         //public ConsoleColor color = ConsoleColor.White;
@@ -25,8 +26,8 @@ namespace SnakeGame
         }
         public override void Update()
         {
-            position.X = base.position.X-1;
-            position.Y = base.position.Y+1;
+            position.X = base.position.X;
+            position.Y = base.position.Y;
         }
         public override void AteFood()
         {

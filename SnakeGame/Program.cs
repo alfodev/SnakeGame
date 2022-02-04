@@ -24,9 +24,9 @@ namespace SnakeGame
             renderer.RenderBorder();
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
             Player karin = new('@');
-            Food mat = new Food('¤');
-            world.ListOfGameObjects.Add(karin);
+            Food mat = new Food('¤');           
             world.ListOfGameObjects.Add(mat);
+            world.ListOfGameObjects.Add(karin);
             // Huvudloopen 
             bool running = true;
             while (running)

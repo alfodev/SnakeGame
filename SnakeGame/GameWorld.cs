@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SnakeGame
 {  
-    class GameWorld
+    public class GameWorld
     {
         public int Width; // X
         public int Height; // Y
