@@ -30,11 +30,7 @@ namespace SnakeGame
                 Console.SetCursorPosition(obj.position.X, obj.position.Y);
                 Console.Write(obj.appearance);
             }
-            
-            Console.SetCursorPosition(22,22);
-            Console.WriteLine($"Points: {world.Points}");
-
-            
+            RenderScore();          
         }
         public void RenderBlank()
         {
@@ -45,6 +41,12 @@ namespace SnakeGame
             }
 
 
+        }
+        public void RenderScore()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(22, 22);
+            Console.WriteLine($"Points: {world.Points}");
         }
         public void RenderBorder()
         {
