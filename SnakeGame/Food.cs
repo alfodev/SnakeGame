@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace SnakeGame
 {
     /// <summary>
-    /// A class which is providing information about the food. Color, positioning and outcome for when it is eaten.
+    /// a class contating information about the food. Appearance and the outcome for when it is eaten
     /// </summary>
-    /// <param name="rnd1">represents the a random method which will generate a position for the food</param>
     public class Food : GameObject
     {
-       
+     
         public Food(char startAppearance) : base(startAppearance)
         {
           
         }
+   
         Random rnd1 = new Random();
         
            
