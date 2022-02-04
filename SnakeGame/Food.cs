@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
+    /// <summary>
+    /// a class contating information about the food. Appearance and the outcome for when it is eaten
+    /// </summary>
     public class Food : GameObject
     {
-       
+     
         public Food(char startAppearance) : base(startAppearance)
         {
           
         }
+
+        /// <summary>
+        /// randomly generating position
+        /// </summary>
         Random rnd1 = new Random();
         
            
@@ -22,11 +29,14 @@ namespace SnakeGame
         }
 
         /// <summary>
-        /// A method which randomly selects colours for the food and points
+        /// randomly generating colors
         /// </summary>
-        /// <param name="_random">represents the random class which later distribute a random color</param>
-        /// <returns>returns the randomly genereted color</returns>
         private static Random _random = new Random();
+
+        /// <summary>
+        /// A method which randomly selects colors for the food and points
+        /// </summary>
+        /// <returns>the randomly genereted color</returns>
         private static ConsoleColor GetRandomConsoleColor()
         {
             var consoleColors = Enum.GetValues(typeof(ConsoleColor));
@@ -34,14 +44,9 @@ namespace SnakeGame
             
             
         }
-        /// <summary>
+        /// <summary> 
         /// The outcome for when the food is eaten. Random color is generated and a new random position is set
         /// </summary>
-        /// <param name="color">represents the color for the food</param>
-        /// <param name="position.X">represents the horizontally position of the food</param>
-        /// <param name="position.y">represents the vertically position of the food</param>
-        /// <returns>returns the randomly genereted color and position for food</returns>
-
         public override void AteFood()
         {
             

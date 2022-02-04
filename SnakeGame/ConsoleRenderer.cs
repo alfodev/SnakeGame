@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace SnakeGame
-{
+{   
     class ConsoleRenderer
     {
         private GameWorld world;
@@ -19,10 +19,9 @@ namespace SnakeGame
         /// <summary>
         /// Rendering the gameworld. Appearance and positioning of the different objects within the World.
         /// </summary>
-        /// <param name="obj"> Represents the objects in the gameworld</param>
-        /// <returns> returns a gameworld with a snake and food in right position and color </returns>
         public void Render()
         {
+
             foreach (var obj in world.ListOfGameObjects)
             {
                 

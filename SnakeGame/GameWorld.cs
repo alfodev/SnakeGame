@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace SnakeGame
-{
+{  
     class GameWorld
     {
         public int Width; // X
@@ -13,7 +13,9 @@ namespace SnakeGame
         public int frameRate = 4;
         
 
-
+        /// <summary>
+        /// A list containg the objects within the gameworld
+        /// </summary>
         public List<GameObject> ListOfGameObjects = new List<GameObject>();
 
         public GameWorld(int width, int height)
@@ -21,7 +23,10 @@ namespace SnakeGame
             Width = width;
             Height = height;
         }
-        
+
+        /// <summary>
+        /// updating the gameworld depending on outcome. If food gets eaten, points and speed is added. If outside frame,game is over
+        /// </summary>
         public void Update()
         {
             foreach (var objects in ListOfGameObjects)
@@ -51,11 +56,18 @@ namespace SnakeGame
                     }
                 }
             }
-        }
+        }/// <summary>
+        /// Generating the speed for the snake object.
+        /// </summary>
+        /// <returns>The speed for the object</returns>
         public int GetFrameRate()
         {
             return frameRate;
         }
+        /// <summary>
+        /// Deciding whether the player is outside the gameworld or not
+        /// <param name="player">Represents the player in the game</param>
+        /// <returns>if true, player is outside gameworld, otherwise false and game continues</returns>
         public bool OutsideGameWorld(GameObject player)
         {
             if (player.position.X >= 50 || player.position.X <= 0)

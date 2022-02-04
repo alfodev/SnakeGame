@@ -4,10 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/// <summary>
+/// Enum with four different values for the snakes direction. Up,down,left, right.
+/// </summary>
 public enum Direction { Up, Down, Left, Right }
 
 namespace SnakeGame
 {
+    /// <summary>
+    /// A class which contains information about the player. Direction,appearance and what happens if food is eaten. 
+    /// </summary>
     public class Player : GameObject
     {
         public Direction MyDirection;
@@ -24,12 +31,6 @@ namespace SnakeGame
         ///  Detecting when the user is pressing a specific key on their keyboard,
         ///  which will move the snake in right direction
         /// </summary>
-        /// <param name="Mydirection"> A field which get triggered by the keypress from the user</param>
-        /// <param name="Direction.Up"> An enum which moves the snake up</param>
-        /// <param name="Direction.Down"> An enum which moves the snake down </param>
-        /// <param name="Direction.Left">An enum which moves the snake to the left</param>
-        /// <param name="Direction.Right">An enum which moves the snake to the right</param>
-        /// <returns>Shifting the snakes direction according to chosen keypress</returns>
         public override void Update()
         {
 
