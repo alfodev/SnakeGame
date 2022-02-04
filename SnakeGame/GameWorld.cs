@@ -36,8 +36,8 @@ namespace SnakeGame
             for (int i = 0; i < Points; i++)
             {
 
-                ListOfGameObjects[Points + 1].position.Y = ListOfGameObjects[Points].position.Y;
-                ListOfGameObjects[Points + 1].position.X = ListOfGameObjects[Points].position.X;
+                ListOfGameObjects[Points+1].position.Y = ListOfGameObjects[Points].position.Y;
+                ListOfGameObjects[Points+1].position.X = ListOfGameObjects[Points].position.X;
 
             }
             foreach (var objects in ListOfGameObjects)

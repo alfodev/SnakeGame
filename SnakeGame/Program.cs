@@ -68,13 +68,14 @@ namespace SnakeGame
                 }
 
                 // Uppdatera världen och rendera om
-                world.Update();
-                renderer.Render();
                 if (world.AteFood)
                 {
                     Tail svans = new Tail('o');
                     world.ListOfGameObjects.Add(svans);
                 }
+                world.Update();
+                renderer.Render();
+
 
                 // Mät hur lång tid det tog
                 double frameTime = Math.Ceiling((1000.0 / frameRate) - (DateTime.Now - before).TotalMilliseconds);
