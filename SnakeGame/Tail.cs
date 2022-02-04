@@ -8,12 +8,21 @@ namespace SnakeGame
 {
     public class Tail : Player
     {
-        public Tail(GameObject player, char Appearance) : base(Direction direction, Appearance)
+        int TailX;
+        int TailY;
+        public char Appearance;
+        public ConsoleColor color = ConsoleColor.White;
+
+
+        public Tail(GameObject player, char appearance) 
+            : base(appearance)
         {
-            player.
+            TailX = player.position.X;
+            TailY = player.position.Y;  
             
-            
-            appearance = Appearance;
+            // this.TailDirection = MyDirection;
+            // color = player.color;
+            this.Appearance = appearance;
         }
         public override void Update()
         {

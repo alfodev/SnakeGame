@@ -11,8 +11,10 @@ namespace SnakeGame
         public int Points = 0;
         public bool GameOver;
         public int frameRate = 4;
-        
 
+        Tail MyTail;
+
+        Direction HeadDirection;
         /// <summary>
         /// A list containg the objects within the gameworld
         /// </summary>
@@ -50,7 +52,8 @@ namespace SnakeGame
                             if (objekt.position.X == objects.position.X && objekt.position.Y == objects.position.Y)
                             {
                                 objekt.AteFood();
-                                AddTail(objects.direc);
+                                AddTail(objects);
+
                                 Points++;
                                 frameRate++;
                             }
@@ -58,10 +61,13 @@ namespace SnakeGame
                     }
                 }
             }
-        }/// <summary>
-        /// Generating the speed for the snake object.
-        /// </summary>
-        /// <returns>The speed for the object</returns>
+            ListOfGameObjects.Add(MyTail);
+        }
+        
+        /// <summary>
+         /// Generating the speed for the snake object.
+         /// </summary>
+         /// <returns>The speed for the object</returns>
         public int GetFrameRate()
         {
             return frameRate;
@@ -69,7 +75,8 @@ namespace SnakeGame
         public void AddTail(GameObject player)
         {
 
-            Tail tail = new Tail(player, 'o');
+            MyTail = new Tail(player, 'o');
+            
             
         }
         /// <summary>
