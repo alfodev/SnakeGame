@@ -50,7 +50,7 @@ namespace SnakeGame
                             if (objekt.position.X == objects.position.X && objekt.position.Y == objects.position.Y)
                             {
                                 objekt.AteFood();
-                                AddTail(objects);
+                                AddTail(objects.direc);
                                 Points++;
                                 frameRate++;
                             }

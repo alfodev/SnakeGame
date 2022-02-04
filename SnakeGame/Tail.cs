@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    public class Tail : GameObject
+    public class Tail : Player
     {
-        public Tail(GameObject food, char Appearance) : base( Appearance)
+        public Tail(GameObject player, char Appearance) : base(Direction direction, Appearance)
         {
-            position.X = food.position.X;
-            position.Y = food.position.Y;
+            player.
+            
+            
             appearance = Appearance;
         }
         public override void Update()
