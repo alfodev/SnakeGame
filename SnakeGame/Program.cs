@@ -99,7 +99,7 @@ namespace SnakeGame
 
             Loop();
             Console.Clear();
-            Console.WriteLine("Game Over 4 you, total points: ");
+            Console.WriteLine("Game Over 4 you!");
             Console.ReadKey();  
         }
     }
