@@ -33,7 +33,8 @@ namespace SnakeGame
         /// </summary>
         public override void Update()
         {
-
+            prevPosition.X = this.position.X;
+            prevPosition.Y = this.position.Y;
             switch (MyDirection)
             {
                 case Direction.Up:
