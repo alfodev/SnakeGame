@@ -10,7 +10,7 @@ namespace SnakeGame
     {
         
         public char Appearance;
-        public ConsoleColor color = ConsoleColor.White;
+        //public ConsoleColor color = ConsoleColor.White;
 
 
         public Tail(char appearance) 
