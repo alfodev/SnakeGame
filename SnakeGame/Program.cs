@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace SnakeGame
 {
-    
+
     public class Program
     {
         /// <summary>
@@ -13,13 +13,13 @@ namespace SnakeGame
         /// </summary>
         static ConsoleKey ReadKeyIfExists() => Console.KeyAvailable ? Console.ReadKey(intercept: true).Key : ConsoleKey.NoName;
         int frameRate = 5;
-        
+
         static void Loop()
         {
             // Initialisera spelet
-            
+
             GameWorld world = new GameWorld(50, 20);
-            
+
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             renderer.RenderBorder();
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
@@ -46,7 +46,7 @@ namespace SnakeGame
 
                     // TODO Lägg till logik för andra knapptryckningar
                     case ConsoleKey.UpArrow:
-                        karin.MyDirection = Direction.Up;                        
+                        karin.MyDirection = Direction.Up;
                         break;
 
                     case ConsoleKey.DownArrow:
@@ -61,10 +61,10 @@ namespace SnakeGame
                         karin.MyDirection = Direction.Right;
                         break;
 
-                    default: 
+                    default:
                         break;
-                        
-                    
+
+
                 }
 
                 // Uppdatera världen och rendera om
@@ -76,7 +76,6 @@ namespace SnakeGame
                     world.ListOfGameObjects.Add(svans);
                 }
 
-
                 // Mät hur lång tid det tog
                 double frameTime = Math.Ceiling((1000.0 / frameRate) - (DateTime.Now - before).TotalMilliseconds);
                 if (frameTime > 0)
@@ -84,14 +83,10 @@ namespace SnakeGame
                     // Vänta rätt antal millisekunder innan loopens nästa varv
                     Thread.Sleep((int)frameTime);
                 }
-                if (world.AteFood)
-                {
-                    Tail svans = new Tail('o');
-                    world.ListOfGameObjects.Add(svans);
-                }
+
                 renderer.RenderBlank();
 
-                if(world.GameOver == true)
+                if (world.GameOver == true)
                 {
                     break;
                 }
@@ -121,39 +116,45 @@ namespace SnakeGame
                             Console.WriteLine("\t\nVälj ett tecken som ett utseende");
                             // 1 poäng för lätt
                             string apperianceEasy = Console.ReadLine();
+                            Console.Clear();
                             // Starta spelet
                             break;
                         case 2:
                             Console.WriteLine("\t\nVälj ett tecken som ett utseende");
                             string apperianceMedium = Console.ReadLine();
+                            Console.Clear();
                             break;
                         case 3:
                             Console.WriteLine("\t\nVälj ett tecken som ett utseende");
                             string apperianceHard = Console.ReadLine();
+                            Console.Clear();
                             break;
                         default:
                             Console.WriteLine("\t\nVänligen välj en siffra!");
+                            Console.Clear();
                             break;
                     }
                     break;
                 case 2:
                     Console.WriteLine("\t\nHighscore");
                     int highScore = 0; //highscore
+                    Console.Clear();
                     break;
                 case 3:
                     // Avsluta
                     break;
                 default:
                     Console.WriteLine("\t\nVänligen väl en siffra från menyn");
+                    Console.Clear();
                     break;
-              }
+            }
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
 
             Loop();
             Console.Clear();
             Console.WriteLine("Game Over 4 you!");
-            Console.ReadKey();  
+            Console.ReadKey();
         }
     }
 }
