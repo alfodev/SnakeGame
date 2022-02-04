@@ -93,12 +93,51 @@ namespace SnakeGame
         {
             // Döljer "pekaren" i konsolfönstret.
 
-            //Console.WriteLine("Hej från menyn");
-            //Console.WriteLine("[1] - Spela");
-            //Console.WriteLine("[3] - Svårighetsgrad");
-            //Console.WriteLine("[2] - High score");            
-            //Console.WriteLine("[4] - Avsluta");
-            //Console.ReadKey();
+            Console.WriteLine("\t\nSnackeGame");
+            Console.WriteLine("\t\n[1] - Spela");
+            Console.WriteLine("\t\n[2] - High score");
+            Console.WriteLine("\t\n[3] - Avsluta");
+            int input = int.Parse(Console.ReadLine());
+            switch (input)
+            {
+                case 1:
+                    Console.WriteLine("\t\nVälj svårighetsgrad:");
+                    Console.WriteLine("\t\n[1] - Easy");
+                    Console.WriteLine("\t\n[2] - Medium");
+                    Console.WriteLine("\t\n[3] - Hard");
+                    int input2 = int.Parse(Console.ReadLine());
+                    switch (input2)
+                    {
+                        case 1:
+                            Console.WriteLine("\t\nVälj ett tecken som ett utseende");
+                            // 1 poäng för lätt
+                            string apperianceEasy = Console.ReadLine();
+                            // Starta spelet
+                            break;
+                        case 2:
+                            Console.WriteLine("\t\nVälj ett tecken som ett utseende");
+                            string apperianceMedium = Console.ReadLine();
+                            break;
+                        case 3:
+                            Console.WriteLine("\t\nVälj ett tecken som ett utseende");
+                            string apperianceHard = Console.ReadLine();
+                            break;
+                        default:
+                            Console.WriteLine("\t\nVänligen välj en siffra!");
+                            break;
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("\t\nHighscore");
+                    int highScore = 0; //highscore
+                    break;
+                case 3:
+                    // Avsluta
+                    break;
+                default:
+                    Console.WriteLine("\t\nVänligen väl en siffra från menyn");
+                    break;
+              }
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
 
