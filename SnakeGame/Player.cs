@@ -14,7 +14,6 @@ namespace SnakeGame
     /// <param name="Direction">Enum with four different values for the snakes direction.Up,down,left, right</param>
     /// <param name="Direction">Enum with four different values for the snakes direction.Up,down,left, right</param>
     /// <param name="Mydirection"> A field which get triggered by the keypress from the user</param>
-    /// <returns>The movement of the snake and the outcome for when food is eaten</returns>
     public class Player : GameObject
     {
         public Direction MyDirection;
@@ -35,7 +34,6 @@ namespace SnakeGame
         /// <param name="Direction.Down"> An enum which moves the snake down </param>
         /// <param name="Direction.Left">An enum which moves the snake to the left</param>
         /// <param name="Direction.Right">An enum which moves the snake to the right</param>
-        /// <returns>Shifting the snakes direction according to chosen keypress</returns>
         public override void Update()
         {
 

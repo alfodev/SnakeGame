@@ -10,7 +10,6 @@ namespace SnakeGame
     /// A class which is providing information about the food. Color, positioning and outcome for when it is eaten.
     /// </summary>
     /// <param name="rnd1">represents the a random method which will generate a position for the food</param>
-    /// <returns>returns a position and color for the food</returns>
     public class Food : GameObject
     {
        
@@ -45,7 +44,6 @@ namespace SnakeGame
         /// <param name="color">represents the color for the food</param>
         /// <param name="position.X">represents the horizontally position of the food</param>
         /// <param name="position.y">represents the vertically position of the food</param>
-        /// <returns>returns the randomly genereted color and position for food</returns>
 
         public override void AteFood()
         {
