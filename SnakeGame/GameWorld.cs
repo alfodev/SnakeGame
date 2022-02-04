@@ -70,7 +70,7 @@ namespace SnakeGame
         /// <returns>if true, player is outside gameworld, otherwise false and game continues</returns>
         public bool OutsideGameWorld(GameObject player)
         {
-            Console.WriteLine("Hej från menyn");
+            //Console.WriteLine("Hej från menyn");
             if (player.position.X >= 50 || player.position.X <= 0)
             {
                 return true;

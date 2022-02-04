@@ -91,9 +91,14 @@ namespace SnakeGame
 
         static void Main(string[] args)
         {
-             // Döljer "pekaren" i konsolfönstret.
-            
-            
+            // Döljer "pekaren" i konsolfönstret.
+
+            //Console.WriteLine("Hej från menyn");
+            //Console.WriteLine("[1] - Spela");
+            //Console.WriteLine("[3] - Svårighetsgrad");
+            //Console.WriteLine("[2] - High score");            
+            //Console.WriteLine("[4] - Avsluta");
+            //Console.ReadKey();
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
 
