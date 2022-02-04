@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace SnakeGame
-{   /// <summary>
-    /// The "template" for the food and snake.
-    /// </summary>
+{ 
     public abstract class GameObject
     {
         public Position position;
