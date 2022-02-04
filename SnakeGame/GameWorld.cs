@@ -27,6 +27,7 @@ namespace SnakeGame
         /// <summary>
         /// updating the gameworld depending on outcome. If food gets eaten, points and speed is added. If outside frame,game is over
         /// </summary>
+       
         public void Update()
         {
             foreach (var objects in ListOfGameObjects)
@@ -49,6 +50,7 @@ namespace SnakeGame
                             if (objekt.position.X == objects.position.X && objekt.position.Y == objects.position.Y)
                             {
                                 objekt.AteFood();
+                                AddTail(objects);
                                 Points++;
                                 frameRate++;
                             }
@@ -64,10 +66,17 @@ namespace SnakeGame
         {
             return frameRate;
         }
+        public void AddTail(GameObject player)
+        {
+
+            Tail tail = new Tail(player, 'o');
+            
+        }
         /// <summary>
         /// Deciding whether the player is outside the gameworld or not
         /// <param name="player">Represents the player in the game</param>
         /// <returns>if true, player is outside gameworld, otherwise false and game continues</returns>
+      
         public bool OutsideGameWorld(GameObject player)
         {
             //Console.WriteLine("Hej från menyn");
