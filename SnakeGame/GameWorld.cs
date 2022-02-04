@@ -11,6 +11,7 @@ namespace SnakeGame
         public int Points = 0;
         public bool GameOver;
         public int frameRate = 4;
+        public bool AteFood = false;
 
         Tail MyTail;
 
@@ -52,16 +53,21 @@ namespace SnakeGame
                             if (objekt.position.X == objects.position.X && objekt.position.Y == objects.position.Y)
                             {
                                 objekt.AteFood();
-                                AddTail(objects);
-
+                                AteFood = true;
                                 Points++;
                                 frameRate++;
+
                             }
+                            else
+                            {
+                                AteFood = false;
+                            }
+                              
                         }                
                     }
                 }
             }
-            ListOfGameObjects.Add(MyTail);
+            
         }
         
         /// <summary>
@@ -75,7 +81,7 @@ namespace SnakeGame
         public void AddTail(GameObject player)
         {
 
-            MyTail = new Tail(player, 'o');
+            MyTail = new Tail('o');
             
             
         }

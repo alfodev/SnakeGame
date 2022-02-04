@@ -32,7 +32,7 @@ namespace SnakeGame
         public Position()
         {
             X = 10;
-            Y = 10;
+            Y = 12;
         }
     }
 }
