@@ -34,41 +34,28 @@ namespace SnakeGame
 
         public void Update()
         {
-            if (Points != 0)
-            {
+
                 for (int i = Points; i > 0; i--)
                 {
-
-
                     ListOfGameObjects[i + 1].position.X = ListOfGameObjects[i].position.X;
                     ListOfGameObjects[i + 1].position.Y = ListOfGameObjects[i].position.Y;
-
-
                 }
-            }
+            
             foreach (var item in ListOfGameObjects)
             {
-
-                
-                if(item == ListOfGameObjects[ListOfGameObjects.Count - 1])
+                if (item == ListOfGameObjects[ListOfGameObjects.Count - 1])
                 {
                     posX = item.position.X;
                     posY = item.position.Y;
                 }
                 item.Update();
-            }
-
-
-
-            foreach (var item in ListOfGameObjects)
-            {
-
 
 
 
                 if (item is Player)
                 {
-                    if (OutsideGameWorld(item) == true) //Lägga till CollideMetod istället? Med sin svans eller världen.
+                    CheckCollision(item);
+                    if (GameOver) //Lägga till CollideMetod istället? Med sin svans eller världen.
                     {
                         Console.SetCursorPosition(20, 10);
                         Console.WriteLine("Total points: " + Points);
@@ -100,15 +87,7 @@ namespace SnakeGame
                 Tail tail = new Tail('o', posX, posY);
                 ListOfGameObjects.Add(tail);
             }
-
-
-            
-
-
-        }
-
-        
-        
+        }      
         /// <summary>
          /// Generating the speed for the snake object.
          /// </summary>
@@ -123,21 +102,22 @@ namespace SnakeGame
         /// <param name="player">Represents the player in the game</param>
         /// <returns>if true, player is outside gameworld, otherwise false and game continues</returns>
       
-        public bool OutsideGameWorld(GameObject player)
+        public void CheckCollision(GameObject player)
         {
-            //Console.WriteLine("Hej från menyn");
             if (player.position.X >= 50 || player.position.X <= 0)
             {
-                return true;
+                GameOver = true;
             }
             if (player.position.Y >= 20 || player.position.Y <= 0)
             {
-                return true;
+                GameOver = true;
             }
-            else
-            {
-                return false;
-            }
+            foreach (var item in ListOfGameObjects)
+                if (item is Tail && player.position.Y == item.position.Y && player.position.X == item.position.X)
+                {
+                    GameOver = true;
+                }
+
         }
     }
 }
