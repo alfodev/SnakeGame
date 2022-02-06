@@ -10,13 +10,12 @@ namespace SnakeGame
         public Position prevPosition;
         // Utseende för objektet
         public char appearance;
-        public ConsoleColor color = ConsoleColor.White;
+        public ConsoleColor color;
 
-        public GameObject(char startAppearance)
+        public GameObject(char startAppearance, int posX, int posY)
         {
-            this.appearance = startAppearance;
-            position = new Position();       
-            prevPosition = new Position();
+            appearance = startAppearance;
+            position = new Position(posX, posY);
         }
         
         public abstract void Update();

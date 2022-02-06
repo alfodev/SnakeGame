@@ -23,10 +23,10 @@ namespace SnakeGame
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             renderer.RenderBorder();
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Player karin = new('@');
-            Food mat = new Food('¤');           
-            world.ListOfGameObjects.Add(mat);
-            world.ListOfGameObjects.Add(karin);
+            Player player = new Player('@',10,15);
+            Food food = new Food('x',15,10);           
+            world.ListOfGameObjects.Add(food);
+            world.ListOfGameObjects.Add(player);
             // Huvudloopen 
             bool running = true;
             while (running)
@@ -46,19 +46,19 @@ namespace SnakeGame
 
                     // TODO Lägg till logik för andra knapptryckningar
                     case ConsoleKey.UpArrow:
-                        karin.MyDirection = Direction.Up;
+                        player.ChangeDirection(Direction.Up);
                         break;
 
                     case ConsoleKey.DownArrow:
-                        karin.MyDirection = Direction.Down;
+                        player.ChangeDirection(Direction.Down);
                         break;
 
                     case ConsoleKey.LeftArrow:
-                        karin.MyDirection = Direction.Left;
+                        player.ChangeDirection(Direction.Left);
                         break;
 
                     case ConsoleKey.RightArrow:
-                        karin.MyDirection = Direction.Right;
+                        player.ChangeDirection(Direction.Right);
                         break;
 
                     default:
@@ -68,11 +68,7 @@ namespace SnakeGame
                 }
 
                 // Uppdatera världen och rendera om
-                if (world.AteFood)
-                {
-                    Tail svans = new Tail('o');
-                    world.ListOfGameObjects.Add(svans);
-                }
+
                 world.Update();
                 renderer.Render();
 

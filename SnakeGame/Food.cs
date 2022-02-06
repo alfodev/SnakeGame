@@ -11,10 +11,11 @@ namespace SnakeGame
     /// </summary>
     public class Food : GameObject
     {
+        
      
-        public Food(char startAppearance) : base(startAppearance)
+        public Food(char startAppearance, int posX, int posY) : base(startAppearance,posX,posY)
         {
-          
+            color = GetRandomConsoleColor();
         }
 
         /// <summary>

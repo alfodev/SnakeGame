@@ -19,8 +19,9 @@ namespace SnakeGame
     {
         public Direction MyDirection;
         
-        public Player(char appearance) : base(appearance)
+        public Player(char appearance, int posX,int posY) : base(appearance, posX, posY)
         {
+            color = ConsoleColor.Yellow;
             // En default position skapas via GameObject klassen. Så vad behöver vi veta när vi skapar en ny player?
             // Vi vill bestämma utseende för våran spelare            
             // Vi vill att spelaren ska röra på sig direkt? Skall denna vara random eller bestämmas via konstruktorn?
@@ -33,10 +34,11 @@ namespace SnakeGame
         /// </summary>
         public override void Update()
         {
+
             switch (MyDirection)
             {
-                case Direction.Up:
-                    position.Y -= 1;
+                case Direction.Up:               
+                    position.Y -= 1;                   
                     break;
                 case Direction.Down:
                     position.Y += 1;
@@ -57,6 +59,32 @@ namespace SnakeGame
         }
         public override void AteFood()
         {
+        }
+        public void ChangeDirection(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Up:
+                    if (MyDirection == Direction.Down) MyDirection = Direction.Down;
+                    else MyDirection = Direction.Up;
+                    break;
+                case Direction.Down:
+                    if (MyDirection == Direction.Up) MyDirection = Direction.Up;
+                    else { MyDirection = Direction.Down; }
+                    break;
+                case Direction.Left:
+                    if (MyDirection == Direction.Right) MyDirection = Direction.Right;
+                    else { MyDirection = Direction.Left; }
+                    break;
+                case Direction.Right:
+                    if (MyDirection == Direction.Left) MyDirection = Direction.Left;
+                    else { MyDirection = Direction.Right; }
+                    break;
+                default: 
+                    break;
+
+            }
+                
         }
 
 

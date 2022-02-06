@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace SnakeGame
-{  
+{
     public class GameWorld
     {
         public int Width; // X
@@ -13,14 +13,15 @@ namespace SnakeGame
         public int frameRate = 4;
         public bool AteFood = false;
 
-        Tail MyTail;
 
-        Direction HeadDirection;
+
+
         /// <summary>
         /// A list containg the objects within the gameworld
         /// </summary>
         public List<GameObject> ListOfGameObjects = new List<GameObject>();
-
+        int posX;
+        int posY;
         public GameWorld(int width, int height)
         {
             Width = width;
@@ -30,60 +31,83 @@ namespace SnakeGame
         /// <summary>
         /// updating the gameworld depending on outcome. If food gets eaten, points and speed is added. If outside frame,game is over
         /// </summary>
-       
+
         public void Update()
         {
-            for (int i = 0; i < Points; i++)
+            if (Points != 0)
             {
-
-                ListOfGameObjects[Points+1].position.Y = ListOfGameObjects[Points].position.Y;
-                ListOfGameObjects[Points+1].position.X = ListOfGameObjects[Points].position.X;
-
-            }
-            foreach (var objects in ListOfGameObjects)
-            {
-               objects.Update(); 
-  
-
-                if (objects is Player)
+                for (int i = Points; i > 0; i--)
                 {
 
-                    if (OutsideGameWorld(objects) == true)
+
+                    ListOfGameObjects[i + 1].position.X = ListOfGameObjects[i].position.X;
+                    ListOfGameObjects[i + 1].position.Y = ListOfGameObjects[i].position.Y;
+
+
+                }
+            }
+            foreach (var item in ListOfGameObjects)
+            {
+
+                
+                if(item == ListOfGameObjects[ListOfGameObjects.Count - 1])
+                {
+                    posX = item.position.X;
+                    posY = item.position.Y;
+                }
+                item.Update();
+            }
+
+
+
+            foreach (var item in ListOfGameObjects)
+            {
+
+
+
+
+                if (item is Player)
+                {
+                    if (OutsideGameWorld(item) == true) //Lägga till CollideMetod istället? Med sin svans eller världen.
                     {
-                        Console.SetCursorPosition(20,10);
+                        Console.SetCursorPosition(20, 10);
                         Console.WriteLine("Total points: " + Points);
                         Thread.Sleep(2000);
                         GameOver = true;
-                    }                    
-                    
-                    foreach (var objekt in ListOfGameObjects)
-                    {
-                        if (objekt is Food)
-                        {
-                            if (objekt.position.X == objects.position.X && objekt.position.Y == objects.position.Y)
-                            {
-                                Points++;
-                                objekt.AteFood();
-                                AteFood = true;
-                                frameRate++;
-
-                            }
-                            else
-                            {
-                                AteFood = false;
-                            }
-                              
-                        }                
                     }
-                  
+
+                    if (item.position.X == ListOfGameObjects[0].position.X && item.position.Y == ListOfGameObjects[0].position.Y)
+                    {
+                        Points++;
+                        ListOfGameObjects[0].AteFood();
+                        AteFood = true;
+
+                        frameRate++;
+
+                    }
+                    else
+                    {
+                        AteFood = false;
+                    }
+
+
                 }
 
-                    
-                
+            }
+            if (AteFood)
+            {
+
+                Tail tail = new Tail('o', posX, posY);
+                ListOfGameObjects.Add(tail);
             }
 
 
+            
+
+
         }
+
+        
         
         /// <summary>
          /// Generating the speed for the snake object.
@@ -93,13 +117,7 @@ namespace SnakeGame
         {
             return frameRate;
         }
-        public void AddTail(GameObject player)
-        {
 
-            MyTail = new Tail('o');
-            
-            
-        }
         /// <summary>
         /// Deciding whether the player is outside the gameworld or not
         /// <param name="player">Represents the player in the game</param>

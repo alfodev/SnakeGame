@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    public class Tail : Player
+    public class Tail : GameObject
     {
 
         public char Appearance;
-        //public ConsoleColor color = ConsoleColor.White;
+        
 
 
-        public Tail(char appearance) 
-            : base(appearance)
+        public Tail(char appearance,int posX,int posY) 
+            : base(appearance,posX,posY)
         {
-
+            color = ConsoleColor.DarkYellow;
             this.Appearance = appearance;
         }
         public override void Update()

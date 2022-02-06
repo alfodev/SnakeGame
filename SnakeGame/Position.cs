@@ -10,7 +10,7 @@ namespace SnakeGame
     /// <summary>
     /// A class which providing positioning of the different objects
     /// </summary>
-    public class Position
+    public struct Position
     {
         public int X;
         public int Y;
@@ -29,10 +29,6 @@ namespace SnakeGame
            Y = startY; 
 
         }
-        public Position()
-        {
-            X = 10;
-            Y = 12;
-        }
+
     }
 }

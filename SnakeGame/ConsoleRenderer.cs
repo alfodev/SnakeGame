@@ -25,7 +25,7 @@ namespace SnakeGame
             foreach (var obj in world.ListOfGameObjects)
             {
                 
-                // Console.ForegroundColor = obj.color;
+                Console.ForegroundColor = obj.color;
                 Console.SetCursorPosition(obj.position.X, obj.position.Y);
                 Console.Write(obj.appearance);
             }
@@ -46,6 +46,8 @@ namespace SnakeGame
             Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(22, 22);
             Console.WriteLine($"Points: {world.Points}");
+
+            
         }
         public void RenderBorder()
         {
