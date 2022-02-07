@@ -5,7 +5,6 @@ using System.Threading;
 
 namespace SnakeGame
 {
-
     public class Program
     {
         /// <summary>
