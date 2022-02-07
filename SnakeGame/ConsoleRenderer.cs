@@ -5,7 +5,7 @@ using System.Text;
 namespace SnakeGame
 {   
     /// <summary>
-    /// A class that handles all the rendering in the consolewindow.
+    /// A class that handles all the rendering in the console window.
     /// </summary>
     class ConsoleRenderer
     {
@@ -28,7 +28,14 @@ namespace SnakeGame
                 Console.SetCursorPosition(obj.position.X, obj.position.Y);
                 Console.Write(obj.appearance);
             }
-            RenderScore();          
+            RenderScore(); 
+
+            if (world.GameOver)
+            {
+                Console.SetCursorPosition(world.Width/2 - 5, world.Height / 2);
+                Console.WriteLine("Total points: " + world.Points);
+                Thread.Sleep(5000);
+            }
         }
 
         public void StartGame()
@@ -59,17 +66,20 @@ namespace SnakeGame
             Console.SetCursorPosition(world.Width/2, world.Height+2);
             Console.WriteLine($"Points: {world.Points}");
         }
+        /// <summary>
+        /// Draws a border for the game.
+        /// </summary>
         public void RenderBorder()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            for (int i = 0; i <= 50; i++)
+            for (int i = 0; i <= world.Width; i++)
             {
                 Console.SetCursorPosition(i, 0);
                 Console.Write("#");
                 Console.SetCursorPosition(i, world.Height);
                 Console.Write("#");
             }
-            for (int i = 0; i <= 20; i++)
+            for (int i = 0; i <= world.Height; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.Write("#");

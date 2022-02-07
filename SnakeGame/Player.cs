@@ -63,7 +63,7 @@ namespace SnakeGame
         /// <summary>
         /// Abstract method when the snake eats the food.
         /// </summary>
-        public override void AteFood()
+        public override void AteFood(int W, int H)
         {
         }
         /// <summary>

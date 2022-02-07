@@ -60,35 +60,28 @@ namespace SnakeGame
         /// </summary>
         static void Loop()
         {
-            // Initialisera spelet
-            Console.Clear();
-            GameWorld world = new GameWorld(50, 20);
-
+            GameWorld world = new GameWorld(70, 20); // Select size for Game
             ConsoleRenderer renderer = new ConsoleRenderer(world);
-            renderer.RenderBorder();
-
             Food food = new Food('x', 15, 10);
             Player player = new Player(headAppearance,20,3,ConsoleColor.Yellow);                    
             world.ListOfGameObjects.Add(food);
             world.ListOfGameObjects.Add(player);
 
             renderer.StartGame();
-           
+            renderer.RenderBorder();
+
             bool running = true;
             while (running)
             {
                 int frameRate = world.GetFrameRate();
                 DateTime before = DateTime.Now;
 
-                // Hantera knapptryckningar från användaren
                 ConsoleKey key = ReadKeyIfExists();
                 switch (key)
                 {
                     case ConsoleKey.Q:
                         running = false;
                         break;
-
-                    // TODO Lägg till logik för andra knapptryckningar
                     case ConsoleKey.UpArrow:
                         player.ChangeDirection(Direction.Up);
                         break;
@@ -115,7 +108,6 @@ namespace SnakeGame
                 double frameTime = Math.Ceiling((1000.0 / frameRate) - (DateTime.Now - before).TotalMilliseconds);
                 if (frameTime > 0)
                 {
-                    // Vänta rätt antal millisekunder innan loopens nästa varv
                     Thread.Sleep((int)frameTime);
                 }
 
@@ -130,7 +122,7 @@ namespace SnakeGame
         }
 
         /// <summary>
-        /// Runs Menu ang gameloop. Also a suggestion for how a menuy could look if we were to further develop the game.
+        /// Runs Menu and gameloop. Also a suggestion for how a menu could look if we were to further develop the game.
         /// </summary>
         static void Main(string[] args)
         {
@@ -189,8 +181,6 @@ namespace SnakeGame
             //        Console.Clear();
             //        break;
             //}
-            //Console.WriteLine("Main");
-            // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
         }
     }
 }

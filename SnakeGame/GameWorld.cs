@@ -62,19 +62,13 @@ namespace SnakeGame
                 if (item is Player)
                 {
                     CheckCollision(item);
-                    if (GameOver)
-                    {
-                        Console.SetCursorPosition(19, Height/2);
-                        Console.WriteLine("Total points: " + Points);
-                        Thread.Sleep(5000);
-                        GameOver = true;
-                    }
+                    
 
                     if (item.position.X == ListOfGameObjects[0].position.X && item.position.Y == ListOfGameObjects[0].position.Y)
                     {
                         Points++;
                         foodColor = ListOfGameObjects[0].color;
-                        ListOfGameObjects[0].AteFood();
+                        ListOfGameObjects[0].AteFood(Width, Height);
                         AteFood = true;
                         frameRate++;
                     }
@@ -108,11 +102,11 @@ namespace SnakeGame
         /// <param name="player">Represents the object snake in the game</param>
         public void CheckCollision(GameObject player)
         {
-            if (player.position.X >= 50 || player.position.X <= 0)
+            if (player.position.X >= Width || player.position.X <= 0)
             {
                 GameOver = true;
             }
-            if (player.position.Y >= 20 || player.position.Y <= 0)
+            if (player.position.Y >= Height || player.position.Y <= 0)
             {
                 GameOver = true;
             }

@@ -33,6 +33,6 @@ namespace SnakeGame
         /// <summary>
         /// Abstract method for object
         /// </summary>
-        public abstract void AteFood();
+        public abstract void AteFood(int W, int H);
     }
 }

@@ -32,7 +32,7 @@ namespace SnakeGame
         /// <summary>
         /// Abstract method for object
         /// </summary>
-        public override void AteFood()
+        public override void AteFood(int W, int H)
         {
         }
     }

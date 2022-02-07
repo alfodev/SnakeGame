@@ -43,10 +43,10 @@ namespace SnakeGame
         /// <summary> 
         /// The outcome for when the food is eaten. Random color is generated and a new random position is set
         /// </summary>
-        public override void AteFood()
+        public override void AteFood(int W, int H)
         {
-            position.X = _random.Next(3,48);
-            position.Y = _random.Next(3, 18);
+            position.X = _random.Next(3,W-2);
+            position.Y = _random.Next(3,H-2);
             color = GetRandomConsoleColor();
         }
 
