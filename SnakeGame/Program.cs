@@ -3,9 +3,13 @@ using System.Threading;
 
 /*  Vi har:
  *      - Gett spelplanen väggar.
- *      - 
- *      - gett ormen en svans, svansens färger beror på vad maten hade för färg.
- *       - */
+ *      - Spelaren har möjlighet att välja "huvud".
+ *      - Hastigheten accelererar när ormen äter.
+ *      - Gett ormen en svans som växer vid mat-intag, svansens färger beror på vad maten hade för färg.
+ *      - Det blir GameOver när ormen går in i sig själv eller i väggarna.
+ *      - Slumpvis färg och position för maten.   
+ *
+ *      Gruppmedlemmar: Alexander Forsberg, Sofia Hansson, Josefin Unefäldt, Karin Eurenius    */
 
 namespace SnakeGame
 {
