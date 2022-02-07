@@ -24,6 +24,11 @@ namespace SnakeGame
         int posX;
         int posY;
 
+        /// <summary>
+        /// Constructor that gives the area of the gameworld.
+        /// </summary>
+        /// <param name="width">The int instance that represents the width of the gameworld</param>
+        /// <param name="height">The int instance that represents the height of the gameworld</param>
         public GameWorld(int width, int height)
         {
             Width = width;
