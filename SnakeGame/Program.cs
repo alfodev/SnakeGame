@@ -46,17 +46,17 @@ namespace SnakeGame
         static void Loop()
         {
             // Initialisera spelet
-            Console.Clear();
             GameWorld world = new GameWorld(50, 20);
 
             ConsoleRenderer renderer = new ConsoleRenderer(world);
-            renderer.RenderBorder();
+            
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Player player = new Player(headAppearance,20,3,ConsoleColor.Yellow);
+            Player player = new Player(headAppearance,20,3);
             Food food = new Food('x',15,10);           
             world.ListOfGameObjects.Add(food);
             world.ListOfGameObjects.Add(player);
             renderer.StartGame();
+            renderer.RenderBorder();
             // Huvudloopen 
             bool running = true;
             while (running)
