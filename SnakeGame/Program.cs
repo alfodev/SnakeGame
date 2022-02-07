@@ -30,7 +30,7 @@ namespace SnakeGame
         /// </summary>
         public static void Menu()
         {
-            
+            bool playGame = true;
             char GetChar(string msg)
             {
                 bool parseSuccess = false;
@@ -43,15 +43,17 @@ namespace SnakeGame
                 return character; 
             }
             headAppearance = GetChar("What appearance would you like? Symbol/Letter/Number: ");
-            while (true)
+            while (playGame)
             {
                 Console.Clear();
-                Loop();                
+                Loop();
                 Console.Clear();
-                Console.SetCursorPosition(20, 0);
-                Console.WriteLine("Game Over 4 you!");            
-                if (GetChar("Would you like to play again ? (Y / N): ") == 'N') break;
-            }
+                Console.WriteLine("Press (Q) to quit or any other key to play again!");
+                if (Console.ReadKey().Key == ConsoleKey.Q)
+                {
+                    playGame = false;
+                }
+            } 
         }
         /// <summary>
         /// Loop where game is running
@@ -61,7 +63,7 @@ namespace SnakeGame
             GameWorld world = new GameWorld(60, 30); // Select size for Game
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             Food food = new Food('x', 15, 10);
-            Player player = new Player(headAppearance,20,3,ConsoleColor.Yellow);                    
+            Player player = new Player(headAppearance,30,2,ConsoleColor.Yellow);                    
             world.ListOfGameObjects.Add(food);
             world.ListOfGameObjects.Add(player);
 

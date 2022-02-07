@@ -32,9 +32,10 @@ namespace SnakeGame
 
             if (world.GameOver)
             {
-                Console.SetCursorPosition(world.Width/2 - 7, world.Height / 2);
-                Console.WriteLine("Total points: " + world.Points);
-                Thread.Sleep(5000);
+                Console.SetCursorPosition(world.Width/2 - 15, world.Height / 2);
+                Console.Write("Game Over 4 you!  ");
+                Console.Write("Total points: " + world.Points);
+                Thread.Sleep(3000);
             }
         }
 
