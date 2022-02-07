@@ -21,14 +21,14 @@ namespace SnakeGame
             
         }
         /// <summary>
-        /// Randomly generating colors for the food object
+        /// Randomly generating colors and position for the food object
         /// </summary>
         private static Random _random = new Random();
 
         /// <summary>
         /// A method which randomly selects colors for the food
         /// </summary>
-        /// <returns>The randomly genereted color</returns>
+        /// <returns>A randomly genereted color is given</returns>
         private static ConsoleColor GetRandomConsoleColor()
         {
             var consoleColors = Enum.GetValues(typeof(ConsoleColor));
