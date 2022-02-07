@@ -64,7 +64,7 @@ namespace SnakeGame
         public void RenderScore()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(world.Width/2, world.Height+2);
+            Console.SetCursorPosition(world.Width/2 - 5, world.Height+2);
             Console.WriteLine($"Points: {world.Points}");
         }
         /// <summary>
