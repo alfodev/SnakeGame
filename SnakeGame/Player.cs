@@ -25,7 +25,7 @@ namespace SnakeGame
         /// The default direction when the game begin.
         /// </summary>
         /// <param name="appearance">The appearance of the snakes head.</param>
-        /// <param name="posX">A constuct fot the position horizontally.</param>
+        /// <param name="posX">A constuct for the position horizontally.</param>
         /// <param name="posY">A construct for the position vertically.</param>
         /// <param name="headColor">The color of the snakes head.</param>
         public Player(char appearance, int posX,int posY, ConsoleColor headColor) : base(appearance, posX, posY)
