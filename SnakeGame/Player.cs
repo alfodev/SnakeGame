@@ -6,35 +6,39 @@ using System.Threading.Tasks;
 
 
 /// <summary>
-/// Enum with four different values for the snakes direction. Up,down,left, right.
+/// Enum with four different values for the snakes direction. Up, down, left, right.
 /// </summary>
 public enum Direction { Up, Down, Left, Right }
 
 namespace SnakeGame
 {
     /// <summary>
-    /// A class which contains information about the player. Direction,appearance and what happens if food is eaten. 
+    /// A class which contains information about the player. 
+    /// Direction, position, appearance and what happens if food is eaten. 
     /// </summary>
     public class Player : GameObject
     {
-        public Direction MyDirection;
-        
+
+        public Direction MyDirection;   
+        /// <summary>
+        /// Sets the color of the snakes head.
+        /// The default direction when the game begin.
+        /// </summary>
+        /// <param name="appearance">The appearance of the snakes head.</param>
+        /// <param name="posX">A constuct for the position horizontally.</param>
+        /// <param name="posY">A construct for the position vertically.</param>
+        /// <param name="headColor">The color of the snakes head.</param>
         public Player(char appearance, int posX,int posY, ConsoleColor headColor) : base(appearance, posX, posY)
         {
             color = headColor;
-            // En default position skapas via GameObject klassen. Så vad behöver vi veta när vi skapar en ny player?
-            // Vi vill bestämma utseende för våran spelare            
-            // Vi vill att spelaren ska röra på sig direkt? Skall denna vara random eller bestämmas via konstruktorn?
             this.MyDirection = Direction.Down;
         }
-
         /// <summary>
         ///  Detecting when the user is pressing a specific key on their keyboard,
-        ///  which will move the snake in right direction
+        ///  which will move the snake in a specific direction.
         /// </summary>
         public override void Update()
         {
-
             switch (MyDirection)
             {
                 case Direction.Up:               
@@ -52,14 +56,17 @@ namespace SnakeGame
                 default:
                     break;
             }
-            //Console.WriteLine("PLAYER UPDATE");
-            // Position X = variabel från main
-            // om upp eller ner
-            // Position Y = variabel från main
         }
+        /// <summary>
+        /// Abstract method when the snake eats the food.
+        /// </summary>
         public override void AteFood()
         {
         }
+        /// <summary>
+        /// Makes the snake unable to turn in opposite direction.
+        /// </summary>
+        /// <param name="NextDirection">A method wich check the next direction of the snake</param>
         public void ChangeDirection(Direction NextDirection)
         {
             switch (NextDirection)
@@ -82,12 +89,8 @@ namespace SnakeGame
                     break;
                 default: 
                     break;
-
-            }
-                
+            }                
         }
-
-
     }
 }
 
