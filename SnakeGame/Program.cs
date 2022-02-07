@@ -23,10 +23,11 @@ namespace SnakeGame
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             renderer.RenderBorder();
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Player player = new Player('@',10,15);
+            Player player = new Player('@',20,3,ConsoleColor.Red);
             Food food = new Food('x',15,10);           
             world.ListOfGameObjects.Add(food);
             world.ListOfGameObjects.Add(player);
+            renderer.StartGame();
             // Huvudloopen 
             bool running = true;
             while (running)
@@ -92,66 +93,75 @@ namespace SnakeGame
 
         static void Main(string[] args)
         {
-            // Döljer "pekaren" i konsolfönstret.
-
-            Console.WriteLine("\t\nSnackeGame");
-            Console.WriteLine("\t\n[1] - Spela");
-            Console.WriteLine("\t\n[2] - High score");
-            Console.WriteLine("\t\n[3] - Avsluta");
-            int input = int.Parse(Console.ReadLine());
-            switch (input)
-            {
-                case 1:
-                    Console.WriteLine("\t\nVälj svårighetsgrad:");
-                    Console.WriteLine("\t\n[1] - Easy");
-                    Console.WriteLine("\t\n[2] - Medium");
-                    Console.WriteLine("\t\n[3] - Hard");
-                    int input2 = int.Parse(Console.ReadLine());
-                    switch (input2)
-                    {
-                        case 1:
-                            Console.WriteLine("\t\nVälj ett tecken som ett utseende");
-                            // 1 poäng för lätt
-                            string apperianceEasy = Console.ReadLine();
-                            Console.Clear();
-                            // Starta spelet
-                            break;
-                        case 2:
-                            Console.WriteLine("\t\nVälj ett tecken som ett utseende");
-                            string apperianceMedium = Console.ReadLine();
-                            Console.Clear();
-                            break;
-                        case 3:
-                            Console.WriteLine("\t\nVälj ett tecken som ett utseende");
-                            string apperianceHard = Console.ReadLine();
-                            Console.Clear();
-                            break;
-                        default:
-                            Console.WriteLine("\t\nVänligen välj en siffra!");
-                            Console.Clear();
-                            break;
-                    }
-                    break;
-                case 2:
-                    Console.WriteLine("\t\nHighscore");
-                    int highScore = 0; //highscore
-                    Console.Clear();
-                    break;
-                case 3:
-                    // Avsluta
-                    break;
-                default:
-                    Console.WriteLine("\t\nVänligen väl en siffra från menyn");
-                    Console.Clear();
-                    break;
-            }
+            //Console.WriteLine("\t\nSnackeGame");
+            //Console.WriteLine("\t\n[1] - Spela");
+            //Console.WriteLine("\t\n[2] - High score");
+            //Console.WriteLine("\t\n[3] - Avsluta");
+            //int input = int.Parse(Console.ReadLine());
+            //switch (input)
+            //{
+            //    case 1:
+            //        Console.WriteLine("\t\nVälj svårighetsgrad:");
+            //        Console.WriteLine("\t\n[1] - Easy");
+            //        Console.WriteLine("\t\n[2] - Medium");
+            //        Console.WriteLine("\t\n[3] - Hard");
+            //        int input2 = int.Parse(Console.ReadLine());
+            //        switch (input2)
+            //        {
+            //            case 1:
+            //                Console.WriteLine("\t\nVälj ett tecken som ett utseende");
+            //                // 1 poäng för lätt
+            //                string apperianceEasy = Console.ReadLine();
+            //                Console.Clear();
+            //                // Starta spelet
+            //                break;
+            //            case 2:
+            //                Console.WriteLine("\t\nVälj ett tecken som ett utseende");
+            //                string apperianceMedium = Console.ReadLine();
+            //                Console.Clear();
+            //                break;
+            //            case 3:
+            //                Console.WriteLine("\t\nVälj ett tecken som ett utseende");
+            //                string apperianceHard = Console.ReadLine();
+            //                Console.Clear();
+            //                break;
+            //            default:
+            //                Console.WriteLine("\t\nVänligen välj en siffra!");
+            //                Console.Clear();
+            //                break;
+            //        }
+            //        break;
+            //    case 2:
+            //        Console.WriteLine("\t\nHighscore");
+            //        int highScore = 0; //highscore
+            //        Console.Clear();
+            //        break;
+            //    case 3:
+            //        // Avsluta
+            //        break;
+            //    default:
+            //        Console.WriteLine("\t\nVänligen väl en siffra från menyn");
+            //        Console.Clear();
+            //        break;
+            //}
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
-
+            Menu();
             Loop();
             Console.Clear();
             Console.WriteLine("Game Over 4 you!");
             Console.ReadKey();
+        }
+        static void Menu()
+        {
+            Console.WriteLine("Choose your snake's appearance");
+            
+
+
+            Console.WriteLine();
+            Thread.Sleep(2000);
+
+
         }
     }
 }

@@ -19,6 +19,7 @@ namespace SnakeGame
         /// <summary>
         /// Rendering the gameworld. Appearance and positioning of the different objects within the World.
         /// </summary>
+        /// 
         public void Render()
         {
 
@@ -30,6 +31,22 @@ namespace SnakeGame
                 Console.Write(obj.appearance);
             }
             RenderScore();          
+        }
+
+        public void StartGame()
+        {
+            
+            for (int i = 3; i > 0; i--)
+            {
+                Console.SetCursorPosition(world.Width/2, world.Height/2);
+                Console.Write(i);
+                Thread.Sleep(1000);
+            }
+            Console.SetCursorPosition(world.Width / 2, world.Height / 2);
+            Console.Write("Good luck!");
+            Thread.Sleep(500);
+            Console.SetCursorPosition(world.Width / 2, world.Height / 2);
+            Console.Write("               ");
         }
         public void RenderBlank()
         {

@@ -12,6 +12,7 @@ namespace SnakeGame
         public bool GameOver;
         public int frameRate = 4;
         public bool AteFood = false;
+        public ConsoleColor foodColor;
 
 
 
@@ -57,20 +58,19 @@ namespace SnakeGame
                     CheckCollision(item);
                     if (GameOver) //Lägga till CollideMetod istället? Med sin svans eller världen.
                     {
-                        Console.SetCursorPosition(20, 10);
+                        Console.SetCursorPosition(19, Height/2);
                         Console.WriteLine("Total points: " + Points);
-                        Thread.Sleep(2000);
+                        Thread.Sleep(5000);
                         GameOver = true;
                     }
 
                     if (item.position.X == ListOfGameObjects[0].position.X && item.position.Y == ListOfGameObjects[0].position.Y)
                     {
                         Points++;
+                        foodColor = ListOfGameObjects[0].color;
                         ListOfGameObjects[0].AteFood();
                         AteFood = true;
-
                         frameRate++;
-
                     }
                     else
                     {
@@ -85,6 +85,7 @@ namespace SnakeGame
             {
 
                 Tail tail = new Tail('o', posX, posY);
+                tail.color = foodColor;
                 ListOfGameObjects.Add(tail);
             }
         }      

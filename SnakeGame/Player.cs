@@ -19,9 +19,9 @@ namespace SnakeGame
     {
         public Direction MyDirection;
         
-        public Player(char appearance, int posX,int posY) : base(appearance, posX, posY)
+        public Player(char appearance, int posX,int posY, ConsoleColor headColor) : base(appearance, posX, posY)
         {
-            color = ConsoleColor.Yellow;
+            color = headColor;
             // En default position skapas via GameObject klassen. Så vad behöver vi veta när vi skapar en ny player?
             // Vi vill bestämma utseende för våran spelare            
             // Vi vill att spelaren ska röra på sig direkt? Skall denna vara random eller bestämmas via konstruktorn?
@@ -60,9 +60,9 @@ namespace SnakeGame
         public override void AteFood()
         {
         }
-        public void ChangeDirection(Direction direction)
+        public void ChangeDirection(Direction NextDirection)
         {
-            switch (direction)
+            switch (NextDirection)
             {
                 case Direction.Up:
                     if (MyDirection == Direction.Down) MyDirection = Direction.Down;

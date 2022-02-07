@@ -54,8 +54,6 @@ namespace SnakeGame
 
             position.X = rnd1.Next(3,48);
             position.Y = rnd1.Next(3, 18);
-
-
             color = GetRandomConsoleColor();
 
 
