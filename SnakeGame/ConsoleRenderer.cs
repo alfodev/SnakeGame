@@ -7,6 +7,7 @@ namespace SnakeGame
     class ConsoleRenderer
     {
         private GameWorld world;
+
         public ConsoleRenderer(GameWorld gameWorld)
         {
             this.world = gameWorld;
@@ -40,7 +41,7 @@ namespace SnakeGame
             {
                 Console.SetCursorPosition(world.Width/2, world.Height/2);
                 Console.Write(i);
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
             }
             Console.SetCursorPosition(world.Width / 2, world.Height / 2);
             Console.Write("Good luck!");
@@ -61,13 +62,14 @@ namespace SnakeGame
         public void RenderScore()
         {
             Console.ForegroundColor = ConsoleColor.Green;
+
             Console.SetCursorPosition(22, 22);
             Console.WriteLine($"Points: {world.Points}");
 
-            
         }
         public void RenderBorder()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i <= 50; i++)
             {
                 Console.SetCursorPosition(i, 0);

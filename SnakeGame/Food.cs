@@ -11,8 +11,6 @@ namespace SnakeGame
     /// </summary>
     public class Food : GameObject
     {
-        
-     
         public Food(char startAppearance, int posX, int posY) : base(startAppearance,posX,posY)
         {
             color = GetRandomConsoleColor();
@@ -20,15 +18,11 @@ namespace SnakeGame
 
         /// <summary>
         /// randomly generating position
-        /// </summary>
-        Random rnd1 = new Random();
-        
-           
+        /// </summary>  
         public override void Update()
         {
             
         }
-
         /// <summary>
         /// randomly generating colors
         /// </summary>
@@ -41,26 +35,16 @@ namespace SnakeGame
         private static ConsoleColor GetRandomConsoleColor()
         {
             var consoleColors = Enum.GetValues(typeof(ConsoleColor));
-            return (ConsoleColor)consoleColors.GetValue(_random.Next(1,7));
-            
-            
+            return (ConsoleColor)consoleColors.GetValue(_random.Next(1,7));  
         }
         /// <summary> 
         /// The outcome for when the food is eaten. Random color is generated and a new random position is set
         /// </summary>
         public override void AteFood()
         {
-            
-
-            position.X = rnd1.Next(3,48);
-            position.Y = rnd1.Next(3, 18);
+            position.X = _random.Next(3,48);
+            position.Y = _random.Next(3, 18);
             color = GetRandomConsoleColor();
-
-
-
-
-
-
         }
 
     }

@@ -16,7 +16,7 @@ namespace SnakeGame
         public Tail(char appearance,int posX,int posY) 
             : base(appearance,posX,posY)
         {
-            color = ConsoleColor.DarkYellow;
+            
             this.Appearance = appearance;
         }
         public override void Update()

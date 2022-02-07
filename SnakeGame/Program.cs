@@ -12,18 +12,47 @@ namespace SnakeGame
         /// Checks Console to see if a keyboard key has been pressed, if so returns it, otherwise NoName.
         /// </summary>
         static ConsoleKey ReadKeyIfExists() => Console.KeyAvailable ? Console.ReadKey(intercept: true).Key : ConsoleKey.NoName;
-        int frameRate = 5;
+        static char headAppearance = ' ';
+        public static void Menu()
+        {
+            char GetChar(string msg)
+            {
+                bool parseSuccess = false;
+                char character = ' ';
+                while (!parseSuccess)
+                {
+                    Console.WriteLine(msg);
+                    parseSuccess = char.TryParse(Console.ReadLine().ToUpper(), out character);
+                }
+                return character;
+                
+            }
+            headAppearance = GetChar("What appearance would you like? Symbol/Letter/Number");
+            while (true)
+            {
 
+                Console.Clear();
+                Loop();
+                
+                Console.Clear();
+                Console.SetCursorPosition(20, 0);
+                Console.WriteLine("Game Over 4 you!");
+            
+                if (GetChar("Would you like to play again ? (Y / N)") == 'N') break;
+
+
+            }
+        }
         static void Loop()
         {
             // Initialisera spelet
-
+            Console.Clear();
             GameWorld world = new GameWorld(50, 20);
 
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             renderer.RenderBorder();
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Player player = new Player('@',20,3,ConsoleColor.Red);
+            Player player = new Player(headAppearance,20,3,ConsoleColor.Yellow);
             Food food = new Food('x',15,10);           
             world.ListOfGameObjects.Add(food);
             world.ListOfGameObjects.Add(player);
@@ -86,6 +115,7 @@ namespace SnakeGame
 
                 if (world.GameOver == true)
                 {
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 }
             }
@@ -147,21 +177,8 @@ namespace SnakeGame
             //Console.WriteLine("Main");
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
             Menu();
-            Loop();
-            Console.Clear();
-            Console.WriteLine("Game Over 4 you!");
-            Console.ReadKey();
-        }
-        static void Menu()
-        {
-            Console.WriteLine("Choose your snake's appearance");
-            
-
-
-            Console.WriteLine();
-            Thread.Sleep(2000);
-
 
         }
+
     }
 }
