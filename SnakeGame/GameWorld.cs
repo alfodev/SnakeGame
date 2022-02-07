@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace SnakeGame
-{
+{/// <summary>
+/// A class containing information about the lifespan of the snake. 
+/// Information about when food is eaten and what happens when Crash in wall or itself.
+/// </summary>
     public class GameWorld
     {
         public int Width; // X
@@ -13,16 +16,14 @@ namespace SnakeGame
         public int frameRate = 4;
         public bool AteFood = false;
         public ConsoleColor foodColor;
-
-
-
-
+     
         /// <summary>
-        /// A list containg the objects within the gameworld
+        /// A list containing the objects within the gameworld
         /// </summary>
         public List<GameObject> ListOfGameObjects = new List<GameObject>();
         int posX;
         int posY;
+
         public GameWorld(int width, int height)
         {
             Width = width;
@@ -30,9 +31,9 @@ namespace SnakeGame
         }
 
         /// <summary>
-        /// updating the gameworld depending on outcome. If food gets eaten, points and speed is added. If outside frame,game is over
+        /// Updating the gameworld depending on outcome.
+        /// Whenever food is eaten,points is added,snake is growing and accelarating. Crash in wall or itself and the game is over.
         /// </summary>
-
         public void Update()
         {
 
@@ -49,14 +50,13 @@ namespace SnakeGame
                     posX = item.position.X;
                     posY = item.position.Y;
                 }
+                
                 item.Update();
-
-
 
                 if (item is Player)
                 {
                     CheckCollision(item);
-                    if (GameOver) //Lägga till CollideMetod istället? Med sin svans eller världen.
+                    if (GameOver)
                     {
                         Console.SetCursorPosition(19, Height/2);
                         Console.WriteLine("Total points: " + Points);
@@ -76,8 +76,6 @@ namespace SnakeGame
                     {
                         AteFood = false;
                     }
-
-
                 }
 
             }
@@ -88,21 +86,20 @@ namespace SnakeGame
                 tail.color = foodColor;
                 ListOfGameObjects.Add(tail);
             }
-        }      
+        }
         /// <summary>
-         /// Generating the speed for the snake object.
-         /// </summary>
-         /// <returns>The speed for the object</returns>
+        /// Generating the speed for the snake object
+        /// </summary>
+        /// <returns>Returns the speed for the snake object</returns>
         public int GetFrameRate()
         {
             return frameRate;
         }
 
         /// <summary>
-        /// Deciding whether the player is outside the gameworld or not
-        /// <param name="player">Represents the player in the game</param>
-        /// <returns>if true, player is outside gameworld, otherwise false and game continues</returns>
-      
+        /// Checking whether the player is outside the gameworld or not
+        /// </summary>
+        /// <param name="player">Represents the object snake in the game</param>
         public void CheckCollision(GameObject player)
         {
             if (player.position.X >= 50 || player.position.X <= 0)

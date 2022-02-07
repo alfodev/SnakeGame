@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SnakeGame
 {
     /// <summary>
-    /// a class contating information about the food. Appearance and the outcome for when it is eaten
+    /// A class contating information about the food. Appearance and the outcome for when it is eaten
     /// </summary>
     public class Food : GameObject
     {
@@ -15,23 +15,20 @@ namespace SnakeGame
         {
             color = GetRandomConsoleColor();
         }
-
-        /// <summary>
-        /// randomly generating position
-        /// </summary>  
+ 
         public override void Update()
         {
             
         }
         /// <summary>
-        /// randomly generating colors
+        /// Randomly generating colors for the food object
         /// </summary>
         private static Random _random = new Random();
 
         /// <summary>
-        /// A method which randomly selects colors for the food and points
+        /// A method which randomly selects colors for the food
         /// </summary>
-        /// <returns>the randomly genereted color</returns>
+        /// <returns>The randomly genereted color</returns>
         private static ConsoleColor GetRandomConsoleColor()
         {
             var consoleColors = Enum.GetValues(typeof(ConsoleColor));
