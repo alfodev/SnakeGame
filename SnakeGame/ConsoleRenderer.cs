@@ -32,7 +32,7 @@ namespace SnakeGame
 
             if (world.GameOver)
             {
-                Console.SetCursorPosition(world.Width/2 - 5, world.Height / 2);
+                Console.SetCursorPosition(world.Width/2 - 7, world.Height / 2);
                 Console.WriteLine("Total points: " + world.Points);
                 Thread.Sleep(5000);
             }
@@ -71,20 +71,29 @@ namespace SnakeGame
         /// </summary>
         public void RenderBorder()
         {
+            string snake = "SNAKE";
+            int stringPos = 0;
             Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i <= world.Width; i++)
             {
                 Console.SetCursorPosition(i, 0);
-                Console.Write("#");
+                Console.Write(snake[stringPos]);
                 Console.SetCursorPosition(i, world.Height);
-                Console.Write("#");
+                Console.Write(snake[stringPos]);
+                stringPos++;
+                if (stringPos == 5) stringPos = 0;
             }
+            stringPos = 0;
             for (int i = 0; i <= world.Height; i++)
             {
+                
                 Console.SetCursorPosition(0, i);
-                Console.Write("#");
+                Console.Write(snake[stringPos]);
                 Console.SetCursorPosition(world.Width, i);
-                Console.Write("#");
+                Console.Write(snake[stringPos]);
+                stringPos++;
+                if(stringPos == 5) stringPos = 0;
+
             }   
         }
     }

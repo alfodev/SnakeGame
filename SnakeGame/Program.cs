@@ -22,6 +22,7 @@ namespace SnakeGame
         /// Checks Console to see if a keyboard key has been pressed, if so returns it, otherwise NoName.
         /// </summary>
         static ConsoleKey ReadKeyIfExists() => Console.KeyAvailable ? Console.ReadKey(intercept: true).Key : ConsoleKey.NoName;
+
         static char headAppearance = ' ';
 
         /// <summary>
@@ -36,12 +37,12 @@ namespace SnakeGame
                 char character = ' ';
                 while (!parseSuccess)
                 {
-                    Console.WriteLine(msg);
+                    Console.Write(msg);
                     parseSuccess = char.TryParse(Console.ReadLine().ToUpper(), out character);
                 }
                 return character; 
             }
-            headAppearance = GetChar("What appearance would you like? Symbol/Letter/Number");
+            headAppearance = GetChar("What appearance would you like? Symbol/Letter/Number: ");
             while (true)
             {
                 Console.Clear();
@@ -49,7 +50,7 @@ namespace SnakeGame
                 Console.Clear();
                 Console.SetCursorPosition(20, 0);
                 Console.WriteLine("Game Over 4 you!");            
-                if (GetChar("Would you like to play again ? (Y / N)") == 'N') break;
+                if (GetChar("Would you like to play again ? (Y / N): ") == 'N') break;
             }
         }
         /// <summary>
@@ -57,7 +58,7 @@ namespace SnakeGame
         /// </summary>
         static void Loop()
         {
-            GameWorld world = new GameWorld(70, 20); // Select size for Game
+            GameWorld world = new GameWorld(60, 30); // Select size for Game
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             Food food = new Food('x', 15, 10);
             Player player = new Player(headAppearance,20,3,ConsoleColor.Yellow);                    
