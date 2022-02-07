@@ -11,6 +11,12 @@ namespace SnakeGame
     /// </summary>
     public class Food : GameObject
     {
+        /// <summary>
+        /// Constructor that gives object its appearance and instance of Position
+        /// </summary>
+        /// <param name="startAppearance">The char instance that represents objects appearance</param>
+        /// <param name="posX"> The int instance that represents objects position horizontally</param>
+        /// <param name="posY"> The int instance that represents objects position vertically</param>
         public Food(char startAppearance, int posX, int posY) : base(startAppearance,posX,posY)
         {
             color = GetRandomConsoleColor();

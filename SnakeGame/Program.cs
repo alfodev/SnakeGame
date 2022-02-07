@@ -5,7 +5,6 @@ using System.Threading;
 
 namespace SnakeGame
 {
-
     public class Program
     {
         /// <summary>
@@ -51,7 +50,7 @@ namespace SnakeGame
             ConsoleRenderer renderer = new ConsoleRenderer(world);
             
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Player player = new Player(headAppearance,20,3);
+            Player player = new Player(headAppearance,20,3,ConsoleColor.Yellow);
             Food food = new Food('x',15,10);           
             world.ListOfGameObjects.Add(food);
             world.ListOfGameObjects.Add(player);
