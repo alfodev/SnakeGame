@@ -39,10 +39,8 @@ namespace SnakeGame
                     Console.WriteLine(msg);
                     parseSuccess = char.TryParse(Console.ReadLine().ToUpper(), out character);
                 }
-                return character;
-                
+                return character; 
             }
-
             headAppearance = GetChar("What appearance would you like? Symbol/Letter/Number");
             while (true)
             {
@@ -54,7 +52,6 @@ namespace SnakeGame
                 if (GetChar("Would you like to play again ? (Y / N)") == 'N') break;
             }
         }
-
         /// <summary>
         /// Loop where game is running
         /// </summary>

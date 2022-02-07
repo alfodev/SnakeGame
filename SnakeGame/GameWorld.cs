@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 namespace SnakeGame
 {/// <summary>
@@ -18,12 +19,12 @@ namespace SnakeGame
         public ConsoleColor foodColor;
         int posX;
         int posY;
-
+        
         /// <summary>
         /// A list containing instances of gameobjects
         /// </summary>
         public List<GameObject> ListOfGameObjects = new List<GameObject>();
-        
+
 
         /// <summary>
         /// Constructor that gives the area of the gameworld.
@@ -43,12 +44,12 @@ namespace SnakeGame
         public void Update()
         {
 
-                for (int i = Points; i > 0; i--)
-                {
-                    ListOfGameObjects[i + 1].position.X = ListOfGameObjects[i].position.X;
-                    ListOfGameObjects[i + 1].position.Y = ListOfGameObjects[i].position.Y;
-                }
-            
+            for (int i = Points; i > 0; i--)
+            {
+                ListOfGameObjects[i + 1].position.X = ListOfGameObjects[i].position.X;
+                ListOfGameObjects[i + 1].position.Y = ListOfGameObjects[i].position.Y;
+            }
+
             foreach (var item in ListOfGameObjects)
             {
                 if (item == ListOfGameObjects[ListOfGameObjects.Count - 1])
@@ -56,13 +57,13 @@ namespace SnakeGame
                     posX = item.position.X;
                     posY = item.position.Y;
                 }
-                
+
                 item.Update();
 
                 if (item is Player)
                 {
                     CheckCollision(item);
-                    
+
 
                     if (item.position.X == ListOfGameObjects[0].position.X && item.position.Y == ListOfGameObjects[0].position.Y)
                     {
