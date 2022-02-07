@@ -6,27 +6,38 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Tail : GameObject
     {
-
-        public char Appearance;
+        //public char Appearance;
         
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appearance"></param>
+        /// <param name="posX"></param>
+        /// <param name="posY"></param>
         public Tail(char appearance,int posX,int posY) 
             : base(appearance,posX,posY)
         {
             
-            this.Appearance = appearance;
+            //this.Appearance = appearance;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public override void Update()
         {
-
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public override void AteFood()
         {
-            
-
         }
     }
 }
