@@ -16,13 +16,14 @@ namespace SnakeGame
         public int frameRate = 4;
         public bool AteFood = false;
         public ConsoleColor foodColor;
-     
-        /// <summary>
-        /// A list containing the objects within the gameworld
-        /// </summary>
-        public List<GameObject> ListOfGameObjects = new List<GameObject>();
         int posX;
         int posY;
+
+        /// <summary>
+        /// A list containing instances of gameobjects
+        /// </summary>
+        public List<GameObject> ListOfGameObjects = new List<GameObject>();
+        
 
         /// <summary>
         /// Constructor that gives the area of the gameworld.
