@@ -9,12 +9,9 @@ using System.Threading;
 
 namespace SnakeGame
 {
-<<<<<<< HEAD
     /// <summary>
     /// Contains all information about the game
     /// </summary>
-=======
->>>>>>> fa5d62b74152627fb06d3290d07b2d320fba2ec6
     public class Program
     {
         /// <summary>
