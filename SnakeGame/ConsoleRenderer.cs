@@ -17,7 +17,8 @@ namespace SnakeGame
             Console.SetWindowSize(world.Width+10, world.Height+10); 
         }
         /// <summary>
-        /// Rendering the gameworld. Appearance and positioning of the different objects within the World. 
+        /// Rendering the gameworld. Appearance and positioning of the different objects within the World.
+        /// also checks for a gameover-condition.
         /// </summary>
         /// 
         public void Render()
@@ -38,7 +39,9 @@ namespace SnakeGame
                 Thread.Sleep(3000);
             }
         }
-
+        /// <summary>
+        /// Countdown followed by a message to the user before the game begins.
+        /// </summary>
         public void StartGame()
         {
             for (int i = 3; i > 0; i--)
@@ -53,6 +56,9 @@ namespace SnakeGame
             Console.CursorVisible = false;
             Console.Clear(); 
         }
+        /// <summary>
+        /// prints out blank characters at all object positions to clear consolewindow.
+        /// </summary>
         public void RenderBlank()
         {
             foreach (var obj in world.ListOfGameObjects)
@@ -61,6 +67,9 @@ namespace SnakeGame
                 Console.Write(" ");
             }
         }
+        /// <summary>
+        /// Prints out the player's current score.
+        /// </summary>
         public void RenderScore()
         {
             Console.ForegroundColor = ConsoleColor.Green;
