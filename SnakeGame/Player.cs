@@ -24,13 +24,14 @@ namespace SnakeGame
         /// Sets the color of the snakes head.
         /// The default direction when the game begin.
         /// </summary>
-        /// <param name="appearance">The appearance of the snakes head.</param>
         /// <param name="posX">A constuct for the position horizontally.</param>
         /// <param name="posY">A construct for the position vertically.</param>
         /// <param name="headColor">The color of the snakes head.</param>
-        public Player(char appearance, int posX,int posY, ConsoleColor headColor) : base(appearance, posX, posY)
+        public Player(char appearance,GameWorld world) : base(world)
         {
-            color = headColor;
+            
+            base.appearance = appearance;
+            color = ConsoleColor.Yellow;
             // En default position skapas via GameObject klassen. Så vad behöver vi veta när vi skapar en ny player?
             // Vi vill bestämma utseende för våran spelare            
             // Vi vill att spelaren ska röra på sig direkt? Skall denna vara random eller bestämmas via konstruktorn?
@@ -45,27 +46,22 @@ namespace SnakeGame
             switch (MyDirection)
             {
                 case Direction.Up:               
-                    position.Y -= 1;                   
+                    pos.Y -= 1;                   
                     break;
                 case Direction.Down:
-                    position.Y += 1;
+                    pos.Y += 1;
                     break;
                 case Direction.Left:
-                    position.X -= 1;
+                    pos.X -= 1;
                     break;
                 case Direction.Right:
-                    position.X += 1;
+                    pos.X += 1;
                     break;
                 default:
                     break;
             }
         }
-        /// <summary>
-        /// Abstract method when the snake eats the food.
-        /// </summary>
-        public override void AteFood(int W, int H)
-        {
-        }
+
         /// <summary>
         /// Makes the snake unable to turn in opposite direction.
         /// </summary>

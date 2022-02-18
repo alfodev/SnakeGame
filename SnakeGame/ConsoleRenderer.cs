@@ -23,10 +23,10 @@ namespace SnakeGame
         /// 
         public void Render()
         {
-            foreach (var obj in world.ListOfGameObjects)
+            foreach (var obj in world.GameObj)
             {             
                 Console.ForegroundColor = obj.color;
-                Console.SetCursorPosition(obj.position.X, obj.position.Y);
+                Console.SetCursorPosition(obj.pos.X, obj.pos.Y);
                 Console.Write(obj.appearance);
             }
             RenderScore(); 
@@ -61,9 +61,9 @@ namespace SnakeGame
         /// </summary>
         public void RenderBlank()
         {
-            foreach (var obj in world.ListOfGameObjects)
+            foreach (var obj in world.GameObj)
             {
-                Console.SetCursorPosition(obj.position.X, obj.position.Y);
+                Console.SetCursorPosition(obj.pos.X, obj.pos.Y);
                 Console.Write(" ");
             }
         }

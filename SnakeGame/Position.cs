@@ -11,6 +11,7 @@ namespace SnakeGame
     /// </summary>
     public struct Position
     {
+        Random r = new Random();
         public int X;
         public int Y;
         /// <summary>
@@ -23,5 +24,12 @@ namespace SnakeGame
            X = startX;
            Y = startY; 
         }
+        public Position(GameWorld world)
+        {
+            X = r.Next(5, world.Width - 5);
+            Y = r.Next(5, world.Height - 5);
+        }
+
+        //public static Postion RandomPosition() => new Position(, startY);
     }
 }

@@ -62,10 +62,10 @@ namespace SnakeGame
         {
             GameWorld world = new GameWorld(60, 30); // Select size for Game
             ConsoleRenderer renderer = new ConsoleRenderer(world);
-            Food food = new Food('x', 15, 10);
-            Player player = new Player(headAppearance,30,2,ConsoleColor.Yellow);                    
-            world.ListOfGameObjects.Add(food);
-            world.ListOfGameObjects.Add(player);
+            Food food = new Food(world);
+            Player player = new Player(headAppearance,world);                    
+            world.GameObj.Add(food);
+            world.GameObj.Add(player);
 
             renderer.StartGame();
             renderer.RenderBorder();
@@ -73,7 +73,7 @@ namespace SnakeGame
             bool running = true;
             while (running)
             {
-                int frameRate = world.GetFrameRate();
+                int frameRate = world.frameRate;
                 DateTime before = DateTime.Now;
 
                 ConsoleKey key = ReadKeyIfExists();

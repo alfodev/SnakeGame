@@ -17,8 +17,9 @@ namespace SnakeGame
         /// <param name="startAppearance">The char instance that represents objects appearance</param>
         /// <param name="posX"> The int instance that represents objects position horizontally</param>
         /// <param name="posY"> The int instance that represents objects position vertically</param>
-        public Food(char startAppearance, int posX, int posY) : base(startAppearance,posX,posY)
+        public Food(GameWorld world) : base(world)
         {
+            base.appearance = 'x';
             color = GetRandomConsoleColor();
         }
  
@@ -35,18 +36,23 @@ namespace SnakeGame
         /// A method which randomly selects colors for the food
         /// </summary>
         /// <returns>A randomly genereted color is given</returns>
-        private static ConsoleColor GetRandomConsoleColor()
+        private ConsoleColor GetRandomConsoleColor()
         {
             var consoleColors = Enum.GetValues(typeof(ConsoleColor));
-            return (ConsoleColor)consoleColors.GetValue(_random.Next(1,7));  
+            ConsoleColor newColor = (ConsoleColor)consoleColors.GetValue(_random.Next(1, 7));
+            while (color == newColor)
+            {
+                newColor = (ConsoleColor)consoleColors.GetValue(_random.Next(1, 7));
+            }
+            return newColor;  
         }
         /// <summary> 
         /// The outcome for when the food is eaten. Random color is generated and a new random position is set
         /// </summary>
-        public override void AteFood(int W, int H)
+        public void AteFood(int W, int H)
         {
-            position.X = _random.Next(3,W-2);
-            position.Y = _random.Next(3,H-2);
+            pos.X = _random.Next(3,W-2);
+            pos.Y = _random.Next(3,H-2);
             color = GetRandomConsoleColor();
         }
 

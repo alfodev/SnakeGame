@@ -14,16 +14,16 @@ namespace SnakeGame
         public int Height; // Y
         public int Points = 0;
         public bool GameOver;
-        public int frameRate = 4;
+        public int frameRate { get; set; } = 4;
         public bool AteFood = false;
-        public ConsoleColor foodColor;
         int posX;
         int posY;
-        
+        public Tail tail;
+
         /// <summary>
         /// A list containing instances of gameobjects
         /// </summary>
-        public List<GameObject> ListOfGameObjects = new List<GameObject>();
+        public List<GameObject> GameObj = new List<GameObject>();
 
 
         /// <summary>
@@ -46,16 +46,16 @@ namespace SnakeGame
 
             for (int i = Points; i > 0; i--)
             {
-                ListOfGameObjects[i + 1].position.X = ListOfGameObjects[i].position.X;
-                ListOfGameObjects[i + 1].position.Y = ListOfGameObjects[i].position.Y;
+                GameObj[i + 1].pos.X = GameObj[i].pos.X;
+                GameObj[i + 1].pos.Y = GameObj[i].pos.Y;
             }
 
-            foreach (var item in ListOfGameObjects)
+            foreach (var item in GameObj)
             {
-                if (item == ListOfGameObjects[ListOfGameObjects.Count - 1])
+                if (item == GameObj[GameObj.Count - 1])
                 {
-                    posX = item.position.X;
-                    posY = item.position.Y;
+                    posX = item.pos.X;
+                    posY = item.pos.Y;
                 }
 
                 item.Update();
@@ -64,12 +64,12 @@ namespace SnakeGame
                 {
                     CheckCollision(item);
 
-
-                    if (item.position.X == ListOfGameObjects[0].position.X && item.position.Y == ListOfGameObjects[0].position.Y)
+                    if (item.pos.X == GameObj[0].pos.X && item.pos.Y == GameObj[0].pos.Y)
                     {
-                        Points++;
-                        foodColor = ListOfGameObjects[0].color;
-                        ListOfGameObjects[0].AteFood(Width, Height);
+                        Points++;     
+                        tail = new Tail(posX, posY, GameObj[0].color);
+                        ((Food)GameObj[0]).AteFood(Width, Height);
+                        
                         AteFood = true;
                         frameRate++;
                     }
@@ -78,24 +78,20 @@ namespace SnakeGame
                         AteFood = false;
                     }
                 }
-
             }
             if (AteFood)
             {
-
-                Tail tail = new Tail('o', posX, posY);
-                tail.color = foodColor;
-                ListOfGameObjects.Add(tail);
+                GameObj.Add(tail);
             }
         }
         /// <summary>
         /// Generating the speed for the snake object
         /// </summary>
         /// <returns>Returns the speed for the snake object</returns>
-        public int GetFrameRate()
-        {
-            return frameRate;
-        }
+        //public int GetFrameRate()
+        //{
+        //    return frameRate;
+        //}
 
         /// <summary>
         /// Checking whether the player is outside the gameworld or not
@@ -103,16 +99,12 @@ namespace SnakeGame
         /// <param name="player">Represents the object snake in the game</param>
         public void CheckCollision(GameObject player)
         {
-            if (player.position.X >= Width || player.position.X <= 0)
-            {
-                GameOver = true;
-            }
-            if (player.position.Y >= Height || player.position.Y <= 0)
-            {
-                GameOver = true;
-            }
-            foreach (var item in ListOfGameObjects)
-                if (item is Tail && player.position.Y == item.position.Y && player.position.X == item.position.X)
+            if (player.pos.X >= Width) player.pos.X = 1;
+            if (player.pos.X <= 0) player.pos.X = Width - 1;
+            if (player.pos.Y >= Height) player.pos.Y = 1;
+            if (player.pos.Y <= 0) player.pos.Y = Height-1;
+            foreach (var item in GameObj)
+                if (item is Tail && player.pos.Y == item.pos.Y && player.pos.X == item.pos.X)
                 {
                     GameOver = true;
                 }
