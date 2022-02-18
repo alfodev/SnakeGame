@@ -25,22 +25,22 @@ namespace SnakeGame
         private void RenderBorder()
         {
             RectangleShape line = new RectangleShape();
-            line.FillColor = Color.Yellow;
+            line.FillColor = Color.White;
             line.Position = new Vector2f(0, 0);
             line.Size = new Vector2f(world.Width * SIZE, 1 * SIZE);            
             window.Draw(line);
 
             line.Rotation = 0;
-            line.FillColor = Color.Blue;
+            line.FillColor = Color.White;
             line.Size = new Vector2f(1 * SIZE, world.Width * SIZE + 20);            
             window.Draw(line);
 
-            line.FillColor = Color.Red;
+            line.FillColor = Color.White;
             line.Position = new Vector2f(world.Width * SIZE , 0 * SIZE);
             window.Draw(line);
 
             line.Rotation = 360;
-            line.FillColor = Color.Green;
+            line.FillColor = Color.White;
             line.Position = new Vector2f(0 * SIZE, world.Height * SIZE);
             line.Size = new Vector2f(world.Width * SIZE, 1 * SIZE);  
             window.Draw(line);
@@ -63,16 +63,17 @@ namespace SnakeGame
                 {
                     CircleShape svans = new CircleShape(SIZE-3, 4);
                     svans.Position = new Vector2f(obj.pos.X * SIZE, obj.pos.Y * SIZE);
-                    svans.FillColor = Color.Cyan;
+                    svans.FillColor = Color.Black;
+                    svans.OutlineThickness = 1;
+                    svans.OutlineColor = Color.Magenta;
                     window.Draw(svans);
                 }
                 if (obj is Player)
                 {
-                    CircleShape cirkel = new CircleShape(SIZE-3);                    
-                    cirkel.FillColor = Color.Green;
-                    //cirkel.OutlineThickness = 2;
-                    //cirkel.OutlineColor = Color.Yellow;
-                    //cirkel.Radius = 6;
+                    CircleShape cirkel = new CircleShape(SIZE-5);                    
+                    cirkel.FillColor = Color.Black;
+                    cirkel.OutlineThickness = 2;
+                    cirkel.OutlineColor = Color.Yellow;
                     cirkel.Position = new Vector2f(obj.pos.X * SIZE, obj.pos.Y * SIZE);
                     window.Draw(cirkel);
                 }

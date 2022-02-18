@@ -23,10 +23,8 @@ namespace SnakeGame
             color = GetRandomConsoleColor();
         }
  
-        public override void Update()
-        {
-            
-        }
+        public override void Update() { }
+
         /// <summary>
         /// Randomly generating colors and position for the food object
         /// </summary>

@@ -29,7 +29,5 @@ namespace SnakeGame
             X = r.Next(5, world.Width - 5);
             Y = r.Next(5, world.Height - 5);
         }
-
-        //public static Postion RandomPosition() => new Position(, startY);
     }
 }
