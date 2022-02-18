@@ -61,14 +61,14 @@ namespace SnakeGame
             {
                 if (obj is Tail)
                 {
-                    CircleShape svans = new CircleShape(SIZE);
+                    CircleShape svans = new CircleShape(SIZE-3, 4);
                     svans.Position = new Vector2f(obj.pos.X * SIZE, obj.pos.Y * SIZE);
                     svans.FillColor = Color.Cyan;
                     window.Draw(svans);
                 }
                 if (obj is Player)
                 {
-                    CircleShape cirkel = new CircleShape(SIZE, 8);                    
+                    CircleShape cirkel = new CircleShape(SIZE-3);                    
                     cirkel.FillColor = Color.Green;
                     //cirkel.OutlineThickness = 2;
                     //cirkel.OutlineColor = Color.Yellow;
@@ -78,7 +78,7 @@ namespace SnakeGame
                 }
                 if (obj is Food)
                 {
-                    CircleShape mat = new CircleShape(SIZE, 4);    
+                    CircleShape mat = new CircleShape(SIZE- 3, 3);    
                     mat.Position = new Vector2f(obj.pos.X * SIZE, obj.pos.Y * SIZE);
                     mat.FillColor = Color.Red;
                     window.Draw(mat);
