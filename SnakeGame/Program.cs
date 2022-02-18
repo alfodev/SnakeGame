@@ -60,15 +60,15 @@ namespace SnakeGame
         /// </summary>
         static void Loop()
         {
-            GameWorld world = new GameWorld(60, 30); // Select size for Game
-            ConsoleRenderer renderer = new ConsoleRenderer(world);
+            GameWorld world = new GameWorld(50, 50); // Select size for Game
+            SFMLRenderer renderer = new SFMLRenderer(world);
             Food food = new Food(world);
             Player player = new Player(headAppearance,world);                    
             world.GameObj.Add(food);
             world.GameObj.Add(player);
 
-            renderer.StartGame();
-            renderer.RenderBorder();
+            //renderer.StartGame();
+
 
             bool running = true;
             while (running)
@@ -104,6 +104,7 @@ namespace SnakeGame
 
                 world.Update();
                 renderer.Render();
+                
 
                 double frameTime = Math.Ceiling((1000.0 / frameRate) - (DateTime.Now - before).TotalMilliseconds);
                 if (frameTime > 0)
@@ -111,7 +112,7 @@ namespace SnakeGame
                     Thread.Sleep((int)frameTime);
                 }
 
-                renderer.RenderBlank();
+                //renderer.RenderBlank();
 
                 if (world.GameOver == true)
                 {
