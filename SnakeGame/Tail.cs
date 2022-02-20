@@ -27,8 +27,6 @@ namespace SnakeGame
         /// <summary>
         /// Abstract method for object
         /// </summary>
-        public override void Update()
-        {
-        }
+        public override void Update() { }
     }
 }

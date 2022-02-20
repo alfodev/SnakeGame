@@ -37,6 +37,8 @@ namespace SnakeGame
             // Vi vill att spelaren ska röra på sig direkt? Skall denna vara random eller bestämmas via konstruktorn?
             this.MyDirection = Direction.Down;
         }
+
+
         /// <summary>
         ///  Detecting when the user is pressing a specific key on their keyboard,
         ///  which will move the snake in a specific direction.
@@ -89,6 +91,8 @@ namespace SnakeGame
                 default: 
                     break;
             }                
+
+
         }
     }
 }

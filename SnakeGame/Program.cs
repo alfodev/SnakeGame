@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SFML.Window;
+using System;
 using System.Threading;
+using System.Diagnostics;
 
 /*  Vi har:
  *      - Gett spelplanen väggar.
@@ -23,6 +25,8 @@ namespace SnakeGame
         /// </summary>
         static ConsoleKey ReadKeyIfExists() => Console.KeyAvailable ? Console.ReadKey(intercept: true).Key : ConsoleKey.NoName;
 
+        
+
         static char headAppearance = ' ';
 
         /// <summary>
@@ -40,7 +44,7 @@ namespace SnakeGame
                     Console.Write(msg);
                     parseSuccess = char.TryParse(Console.ReadLine().ToUpper(), out character);
                 }
-                return character; 
+                return character;
             }
             headAppearance = GetChar("What appearance would you like? Symbol/Letter/Number: ");
             while (playGame)
@@ -53,7 +57,7 @@ namespace SnakeGame
                 {
                     playGame = false;
                 }
-            } 
+            }
         }
         /// <summary>
         /// Loop where game is running
@@ -76,25 +80,27 @@ namespace SnakeGame
                 int frameRate = world.frameRate;
                 DateTime before = DateTime.Now;
 
-                ConsoleKey key = ReadKeyIfExists();
+
+
+                Keyboard.Key key = renderer.GetKey(); ;
                 switch (key)
                 {
-                    case ConsoleKey.Q:
+                    case Keyboard.Key.Q:
                         running = false;
                         break;
-                    case ConsoleKey.UpArrow:
+                    case Keyboard.Key.Up:
                         player.ChangeDirection(Direction.Up);
                         break;
 
-                    case ConsoleKey.DownArrow:
+                    case Keyboard.Key.Down:
                         player.ChangeDirection(Direction.Down);
                         break;
 
-                    case ConsoleKey.LeftArrow:
+                    case Keyboard.Key.Left:
                         player.ChangeDirection(Direction.Left);
                         break;
 
-                    case ConsoleKey.RightArrow:
+                    case Keyboard.Key.Right:
                         player.ChangeDirection(Direction.Right);
                         break;
 
@@ -127,8 +133,8 @@ namespace SnakeGame
         /// </summary>
         static void Main(string[] args)
         {
-            Menu();
-
+            //Menu();
+            Loop();
             // Extra alternative
 
             //Console.WriteLine("\t\nSnackeGame");

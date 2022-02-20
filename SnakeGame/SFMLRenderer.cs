@@ -11,9 +11,16 @@ namespace SnakeGame
 {
     class SFMLRenderer
     {
+        private Keyboard.Key latestKey = Keyboard.Key.Unknown;
+
+
+
+
         static private int SIZE = 10; // Storlek på varje ruta
         private GameWorld world; // Referens till GameWorld (som förut)
         private RenderWindow window; // Referens till det SFML-fönster som vi skapar
+
+
         public SFMLRenderer(GameWorld w)
         {
             world = w;
@@ -55,7 +62,8 @@ namespace SnakeGame
             window.Clear(); // Motsvarigheten till Console.Clear()
             RenderBorder();
             window.DispatchEvents(); // Vi säger att vi tagit emot all info vi behöver
-            
+
+            window.KeyPressed += (sender, e) => latestKey = e.Code;
 
             foreach (var obj in world.GameObj)
             {
@@ -87,6 +95,15 @@ namespace SnakeGame
             }      
             window.Display(); // Visa den nya framen i fönstret
         }
+
+
+        public Keyboard.Key GetKey()
+        {
+            Keyboard.Key copyOfLatestKey = latestKey;
+            latestKey = Keyboard.Key.Unknown;
+            return copyOfLatestKey;
+        }
+
     }
 }
 
